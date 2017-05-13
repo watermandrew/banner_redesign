@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import Category from './components/category';
 import Modal from './Modal';
+
+import './style.scss';
 
 
 // basics for this were taken from https://www.npmjs.com/package/react-modal website
@@ -20,19 +23,24 @@ class App extends Component {
 
   render() {
     return (
-      <div className="modal-pop-up">
-        <button onClick={this.switchMode}>
-          open me!!
-        </button>
+      <div>
+        <div className="test">Banner Home</div>
+        <Category />
+        <div className="modal-pop-up">
+          <button onClick={this.switchMode}>
+            open me!!
+          </button>
 
-        <Modal show={this.state.isOpen}
-          onClose={this.switchMode}
-        >
-          Content of modal
-        </Modal>
+          <Modal show={this.state.isOpen}
+            onClose={this.switchMode}
+          >
+            Content of modal
+          </Modal>
+        </div>
       </div>
     );
   }
 }
+
 
 ReactDOM.render(<App />, document.getElementById('main'));

@@ -4,14 +4,21 @@ import Category from './components/category';
 import Modal from './Modal';
 
 import './style.scss';
+import NewCategory from './components/new_category';
 
 
 // basics for this were taken from https://www.npmjs.com/package/react-modal website
+
 class App extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { isOpen: false };
+    this.state = {
+      categories: [],
+      link: 'Hello',
+      links: ['link1', 'link2', 'link3', 'link4'],
+      isOpen: false,
+    };
     this.switchMode = this.switchMode.bind(this);
   }
 
@@ -34,6 +41,7 @@ class App extends Component {
             onClose={this.switchMode}
           >
             <Category />
+            <NewCategory links={this.state.links} />
           </Modal>
         </div>
       </div>

@@ -2,3 +2,6 @@ npm-debug.log*
 public/build
 node_modules
 .npm
+.eslintrc
+package.json
+webpack.config.js

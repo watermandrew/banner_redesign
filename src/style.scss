@@ -6,3 +6,13 @@ nav {
   background-color: rgb(3, 105, 19);
   color: white;
 }
+
+.linkList {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+li {
+  list-style-type: none;
+}

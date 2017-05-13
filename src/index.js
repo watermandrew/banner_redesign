@@ -1,22 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import './style.scss';
+import Category from './components/category';
 
-const NavBar = () => {
-  return (
-    <nav>
-      <div>Welcome to Banner!</div>
-    </nav>
-  );
-};
+import './style.scss';
 
 
 const App = () => {
   return (
     <div>
-      <NavBar />
       <div className="test">Banner Home</div>
+      <Category />
     </div>
   );
 };

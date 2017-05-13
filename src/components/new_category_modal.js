@@ -1,9 +1,10 @@
 import React from 'react';
 // import Modal from 'react-bootstrap-modal';
+import NewCategory from './new_category';
 
 
 // explanation and modal concepts taken from https://daveceddia.com/open-modal-in-react/
-class Modal extends React.Component {
+class NewModal extends React.Component {
   render() {
     // Render nothing if the "show" prop is false
     if (!this.props.show) {
@@ -35,20 +36,15 @@ class Modal extends React.Component {
     return (
       <div className="backdrop" style={backdropStyle}>
         <div className="modal" style={modalStyle}>
-          {this.props.children}
-          <div className="footer">
-            <button onClick={this.props.onClose}>
-              Close the modal
-            </button>
-          </div>
+          <NewCategory links={this.props.links} create={this.props.create} />
         </div>
       </div>
     );
   }
 }
 
-Modal.propTypes = {
-  onClose: React.PropTypes.func.isRequired,
-};
+// NewModal.propTypes = {
+//   onClose: React.PropTypes.func.isRequired,
+// };
 
-export default Modal;
+export default NewModal;

@@ -6,7 +6,8 @@ import Modal from './Modal';
 import * as firebasedb from './firebasedb';
 
 import './style.scss';
-import NewCategory from './components/new_category';
+// import { NewCategory } from './components/new_category';
+import NewModal from './components/new_category_modal';
 
 
 // basics for this were taken from https://www.npmjs.com/package/react-modal website
@@ -23,6 +24,7 @@ class App extends Component {
       isOpen: false,
     };
     this.switchMode = this.switchMode.bind(this);
+    this.createCategory = this.createCategory.bind(this);
   }
   componentDidMount() {
     firebasedb.fetchAllLinks((links) => {
@@ -34,21 +36,22 @@ class App extends Component {
       isOpen: !this.state.isOpen,
     });
   }
+  createCategory(cat) {
+    firebasedb.createCategory(cat);
+
+    this.switchMode();
+  }
   render() {
     return (
       <div>
-        <div className="test">Banner Home</div>
+        <div className="test">
+          Banner Home
+        </div>
         <div className="modal-pop-up">
           <button onClick={this.switchMode}>
             open me!!
           </button>
-
-          <Modal show={this.state.isOpen}
-            onClose={this.switchMode}
-          >
-            <Category />
-            <NewCategory links={this.state.links} />
-          </Modal>
+          <NewModal show={this.state.isOpen} links={this.state.links} create={this.createCategory}> Stuff here </NewModal>
         </div>
       </div>
     );

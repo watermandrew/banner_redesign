@@ -31,7 +31,7 @@ class NewCategory extends Component {
       links: this.state.selectedLinks,
     };
 
-    firebasedb.createCategory(cat);
+    this.props.create(cat);
   }
 
 

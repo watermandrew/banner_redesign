@@ -5,9 +5,11 @@ import Category from './components/category';
 
 import './style.scss';
 
+
 const App = () => {
   return (
     <div>
+      <div className="test">Banner Home</div>
       <Category />
     </div>
   );

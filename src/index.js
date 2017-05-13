@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import Category from './components/category';
 import Modal from './Modal';
 
+import * as firebasedb from './firebasedb';
+
 import './style.scss';
 import NewCategory from './components/new_category';
 
@@ -16,18 +18,22 @@ class App extends Component {
     this.state = {
       categories: [],
       link: 'Hello',
-      links: ['link1', 'link2', 'link3', 'link4'],
+      // links: ['link1', 'link2', 'link3', 'link4'],
+      links: [],
       isOpen: false,
     };
     this.switchMode = this.switchMode.bind(this);
   }
-
+  componentDidMount() {
+    firebasedb.fetchAllLinks((links) => {
+      this.setState({ links });
+    });
+  }
   switchMode() {
     this.setState({
       isOpen: !this.state.isOpen,
     });
   }
-
   render() {
     return (
       <div>

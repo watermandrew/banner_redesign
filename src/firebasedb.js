@@ -17,6 +17,12 @@ export function fetchAllLinks(callback) {
   });
 }
 
+export function fetchCategories(callback) {
+  db.ref('categories').on('value', (snapshot) => {
+    callback(snapshot.val());
+  });
+}
+
 
 export function createCategory(cat) {
   const key = db.ref().child('categories').push().key;

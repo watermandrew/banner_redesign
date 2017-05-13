@@ -1,8 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import './style.scss';
+
+const NavBar = () => {
+  return (
+    <nav>
+      <div>Welcome to Banner!</div>
+    </nav>
+  );
+};
+
+
 const App = () => {
-  return <div className="test">All the React are belong to us!</div>;
+  return (
+    <div>
+      <NavBar />
+      <div className="test">Banner Home</div>
+    </div>
+  );
 };
 
 ReactDOM.render(<App />, document.getElementById('main'));

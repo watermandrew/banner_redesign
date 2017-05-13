@@ -2,3 +2,13 @@ body {
   font-family: "Roboto", sans-serif;
   background: darken(white, 0.2);
 }
+
+.linkList {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+li {
+  list-style-type: none;
+}

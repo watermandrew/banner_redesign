@@ -25,7 +25,6 @@ class App extends Component {
     return (
       <div>
         <div className="test">Banner Home</div>
-        <Category />
         <div className="modal-pop-up">
           <button onClick={this.switchMode}>
             open me!!
@@ -34,7 +33,7 @@ class App extends Component {
           <Modal show={this.state.isOpen}
             onClose={this.switchMode}
           >
-            Content of modal
+            <Category />
           </Modal>
         </div>
       </div>

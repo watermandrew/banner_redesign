@@ -30,6 +30,10 @@ class App extends Component {
     firebasedb.fetchAllLinks((links) => {
       this.setState({ links });
     });
+
+    firebasedb.fetchCategories((cats) => {
+      this.setState({ categories: cats });
+    });
   }
   switchMode() {
     this.setState({

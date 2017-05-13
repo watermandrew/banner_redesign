@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-<<<<<<< HEAD
+
 import Category from './components/category';
 
 import './style.scss';

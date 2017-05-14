@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import * as firebasedb from '../firebasedb';
+// import * as firebasedb from '../firebasedb';
 
 class NewCategory extends Component {
   constructor(props) {
@@ -11,6 +11,7 @@ class NewCategory extends Component {
       selectedLinks: [],
     };
     this.onInputChange = this.onInputChange.bind(this);
+    this.onButtonClick = this.onButtonClick.bind(this);
     this.createCategory = this.createCategory.bind(this);
     // this.onButtonClick = this.onButtonClick.bind(this);
   }
@@ -25,6 +26,8 @@ class NewCategory extends Component {
     newArray.push(selected);
     this.setState({ selectedLinks: newArray });
   }
+
+
   createCategory() {
     const cat = {
       title: this.state.title,
@@ -35,14 +38,6 @@ class NewCategory extends Component {
   }
 
 
-  // http://stackoverflow.com/questions/26505064/react-js-what-is-the-best-way-to-add-a-value-to-an-array-in-state
-  // onButtonClick(event) {
-  //   const newArray = this.state.arr.slice();
-  //   newArray.push('new value');
-  //   this.setState({ arr: newArray });
-  // }
-
-
   render() {
     return (
       <div>
@@ -51,7 +46,10 @@ class NewCategory extends Component {
         {this.state.links.map((link) => {
           console.log(link);
           return (
-            <div>{link}<button onClick={clicked => this.onButtonClick(link)}>Add</button></div>
+            <div>
+              <div>{link}<button value="Add" onClick={this.onButtonClick} /></div>
+              <div>{link}<button onClick={clicked => this.onButtonClick(link)}>Add</button></div>
+            </div>
           );
         })}
         <button onClick={this.createCategory}>Create</button>

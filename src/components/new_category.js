@@ -10,7 +10,7 @@ class NewCategory extends Component {
       links: [],
     };
     this.onInputChange = this.onInputChange.bind(this);
-    // this.onButtonClick = this.onButtonClick.bind(this);
+    this.onButtonClick = this.onButtonClick.bind(this);
   }
 
   onInputChange(event) {
@@ -18,11 +18,10 @@ class NewCategory extends Component {
   }
 
   // http://stackoverflow.com/questions/26505064/react-js-what-is-the-best-way-to-add-a-value-to-an-array-in-state
-  // onButtonClick(event) {
-  //   const newArray = this.state.arr.slice();
-  //   newArray.push('new value');
-  //   this.setState({ arr: newArray });
-  // }
+  onButtonClick(event) {
+    if (this.value === 'Add') this.value = 'Del';
+    else this.value = 'Add';
+  }
 
 
   render() {
@@ -33,7 +32,7 @@ class NewCategory extends Component {
         {this.props.links.map((link) => {
           console.log(link);
           return (
-            <div>{link}<button onClick={this.onButtonClick}>Add</button></div>
+            <div>{link}<button value="Add" onClick={this.onButtonClick} /></div>
           );
         })}
       </div>

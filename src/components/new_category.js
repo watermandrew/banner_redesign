@@ -47,7 +47,6 @@ class NewCategory extends Component {
           console.log(link);
           return (
             <div>
-              <div>{link}<button value="Add" onClick={this.onButtonClick} /></div>
               <div>{link}<button onClick={clicked => this.onButtonClick(link)}>Add</button></div>
             </div>
           );

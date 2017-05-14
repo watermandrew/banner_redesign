@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 // import Category from './components/category';
 // import Modal from './Modal';
+import Profile from './components/profile';
 
 import * as firebasedb from './firebasedb';
 
@@ -50,6 +51,7 @@ class App extends Component {
     return (
       <div>
         <NavBar />
+        <Profile />
         <div className="modal-pop-up">
           <button onClick={this.switchMode}>
             open me!!

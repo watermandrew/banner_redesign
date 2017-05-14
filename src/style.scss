@@ -29,3 +29,15 @@ nav {
 li {
   list-style-type: none;
 }
+
+.profile {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  .profile-info {
+    font-size: 1.5em;
+    color: grey;
+    font-weight: lighter;
+  }
+}

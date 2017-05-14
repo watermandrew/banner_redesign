@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import Category from './components/category';
-import Modal from './Modal';
+// import Category from './components/category';
+// import Modal from './Modal';
 
 import * as firebasedb from './firebasedb';
 
 import './style.scss';
 // import { NewCategory } from './components/new_category';
 import NewModal from './components/new_category_modal';
+import NavBar from './components/nav';
 
 
 // basics for this were taken from https://www.npmjs.com/package/react-modal website
@@ -48,9 +49,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <div className="test">
-          Banner Home
-        </div>
+        <NavBar />
         <div className="modal-pop-up">
           <button onClick={this.switchMode}>
             open me!!

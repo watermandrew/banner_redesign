@@ -3,8 +3,21 @@ body {
 }
 
 nav {
-  background-color: rgb(3, 105, 19);
+  align-items: center;
+}
+
+#nav-bar {
+  margin: 0;
+  background-color: green;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   color: white;
+  font-size: 2.5em;
+  padding-left: 250px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+
 }
 
 .linkList {

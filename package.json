@@ -4,7 +4,7 @@
   "description": "Banner interface",
   "main": "src/index.js",
   "scripts": {
-    "start": "set NODE_ENV=development & webpack-dev-server --inline --hot"
+    "start": "NODE_ENV=development & webpack-dev-server --inline --hot"
   },
   "repository": {
     "type": "git",
@@ -40,6 +40,7 @@
   },
   "dependencies": {
     "axios": "^0.16.1",
+    "firebase": "^3.8.0",
     "extract-text-webpack-plugin": "^2.1.0",
     "jquery": "^3.2.1",
     "lodash.debounce": "^4.0.8",

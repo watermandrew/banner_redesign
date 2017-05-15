@@ -53,14 +53,15 @@ class NewCategory extends Component {
 
   render() {
     return (
-      <div>
+      <div className="new-category">
         <div>New Category</div>
-        <div>Title: <input onChange={this.onInputChange} value={this.state.title} /></div>
+        <div className="title-input">Title: <input onChange={this.onInputChange} value={this.state.title} /></div>
         {this.state.links.map((link) => {
-          console.log(link);
+          // console.log(link);
           return (
-            <div>
-              <div>{link}<button id={link} onClick={clicked => this.onButtonClick(link)}>Add</button></div>
+            <div className="modal-links">
+              <li>{link}</li>
+              <button className="add-button" id={link} onClick={clicked => this.onButtonClick(link)}>Add</button>
             </div>
           );
         })}

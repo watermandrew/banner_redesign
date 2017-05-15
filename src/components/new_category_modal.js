@@ -5,6 +5,21 @@ import NewCategory from './new_category';
 
 // explanation and modal concepts taken from https://daveceddia.com/open-modal-in-react/
 class NewModal extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      isOpen: false,
+    };
+    this.switchMode = this.switchMode.bind(this);
+  }
+
+  switchMode() {
+    this.setState({
+      isOpen: !this.state.isOpen,
+    });
+  }
+
   render() {
     // Render nothing if the "show" prop is false
     if (!this.props.show) {
@@ -37,14 +52,19 @@ class NewModal extends React.Component {
       <div className="backdrop" style={backdropStyle}>
         <div className="modal" style={modalStyle}>
           <NewCategory links={this.props.links} create={this.props.create} />
+          <div id="footer">
+            <button id="close-modal" onClick={this.props.onClose}>
+              Close the modal
+            </button>
+          </div>
         </div>
       </div>
     );
   }
 }
 
-// NewModal.propTypes = {
-//   onClose: React.PropTypes.func.isRequired,
-// };
+NewModal.propTypes = {
+  onClose: React.PropTypes.func.isRequired,
+};
 
 export default NewModal;

@@ -52,11 +52,18 @@ class App extends Component {
       <div>
         <NavBar />
         <Profile />
-        <div className="modal-pop-up">
-          <button onClick={this.switchMode}>
-            open me!!
+        <div id="checklist">
+          <li>MY CHECKLIST</li>
+          <li>Check in, spring 2017</li>
+          <li>Fall Room Draw</li>
+          <li>Course registration</li>
+          <li>+ Add an item</li>
+        </div>
+        <div>
+          <button id="modal-button" onClick={this.switchMode}>
+            + Create a Category
           </button>
-          <NewModal show={this.state.isOpen} links={this.state.links} create={this.createCategory}> Stuff here </NewModal>
+          <NewModal show={this.state.isOpen} links={this.state.links} create={this.createCategory} onClose={this.switchMode}> Stuff here </NewModal>
         </div>
       </div>
     );

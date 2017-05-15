@@ -13,12 +13,13 @@ class Profile extends Component {
   render() {
     return (
       <div id="profile">
-        <h1>Profile </h1>
         <div id="profile-info">
           <p>Name: {this.state.username}</p>
           <p>NET ID: {this.state.netID}</p>
           <p>Credits Remaining: {this.state.remCredits}</p>
+          <hr />
         </div>
+        <div className="vr">&nbsp;</div>
       </div>
     );
   }

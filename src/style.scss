@@ -1,5 +1,5 @@
 body {
-
+  overflow: scroll;
 }
 
 nav {
@@ -14,11 +14,34 @@ nav {
   align-items: center;
   color: white;
   font-size: 2.5em;
-  padding-left: 300px;
+  padding-left: 350px;
   padding-top: 10px;
   padding-bottom: 10px;
 
 }
+
+#new-category {
+  h2 {
+    padding-top: 0px;
+    text-align: center;
+  }
+  overflow: scroll;
+}
+
+input[type=text], select {
+  padding: 10px 8px;
+  margin: 4px 0.01px;
+  border: 1px solid;
+  border-radius: 2px;
+  font: inherit;
+  font-size: 15px;
+  color: black;
+  border-color: grey;
+  width: 80%;
+  margin-bottom: 20px;
+}
+
+
 
 .linkList {
   display: flex;
@@ -56,7 +79,7 @@ li {
     display: flex;
     flex-direction: column nowrap;
     color: black;
-    overflow-y: auto;
+    overflow: scroll;
     align-items: center;
     justify-content: space-between;
     li {
@@ -120,6 +143,7 @@ li {
   right: 0;
   background-color: white;
   padding: 50;
+  overflow: scroll;
 
   #modal {
     background-color: white;
@@ -127,7 +151,8 @@ li {
     max-width: 500;
     min-height: 300;
     margin: 0 auto;
-    padding: 30
+    padding: 30;
+    overflow: scroll;
   }
 
 }

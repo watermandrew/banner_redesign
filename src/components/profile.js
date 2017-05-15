@@ -13,6 +13,7 @@ class Profile extends Component {
   render() {
     return (
       <div id="profile">
+        <i className="fa fa-user" aria-hidden="true" />
         <div id="profile-info">
           <p>Name: {this.state.username}</p>
           <p>NET ID: {this.state.netID}</p>

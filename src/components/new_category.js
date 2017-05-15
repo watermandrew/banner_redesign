@@ -53,9 +53,10 @@ class NewCategory extends Component {
 
   render() {
     return (
-      <div className="new-category">
-        <div>New Category</div>
-        <div className="title-input">Title: <input onChange={this.onInputChange} value={this.state.title} /></div>
+      <div id="new-category">
+        <h2>Create a New Category</h2>
+        <div>Title: <input type="text" name="My Category Name" placeholder="Type a new category name here" onChange={this.onInputChange} value={this.state.title} /></div>
+        <hr />
         {this.state.links.map((link) => {
           // console.log(link);
           return (

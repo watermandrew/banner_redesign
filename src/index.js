@@ -43,6 +43,11 @@ class App extends Component {
       isOpen: !this.state.isOpen,
     });
   }
+  wantsToCancel() {
+    this.setState({
+      wantsCancel: true,
+    });
+  }
   createCategory(cat) {
     firebasedb.createCategory(cat);
 

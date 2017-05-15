@@ -6,6 +6,10 @@ nav {
   align-items: center;
 }
 
+b{
+  color: red;
+}
+
 #nav-bar {
   margin: 0;
   background-color: green;
@@ -20,6 +24,53 @@ nav {
   padding-bottom: 10px;
 
 }
+.heading {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: left;
+}
+//
+// input[type="radio"] {
+//     display:none;
+// }
+//
+
+//
+input[type="radio"]{
+    display:inline-block;
+    cursor:pointer;
+}
+
+input[type="radio"] + label {
+    display:inline-block;
+    cursor:pointer;
+}
+
+#card-type{
+  display: flex;
+  width: 20%
+}
+
+#card-type:hover {
+  display: flex;
+  background-color: lightblue;
+  width: 20%;
+
+}
+
+input[type="radio"]:checked{
+    display: flex;
+    background-color: red;
+}
+
+
+input[type="radio"]:checked + label{
+    display: flex;
+    justify-content: center;
+    background-color: lightblue;
+
+}
+
 
 #new-category {
   h2 {
@@ -42,6 +93,23 @@ input[type=text], select {
   margin-bottom: 20px;
 }
 
+.inputs {
+  input[type=text], select {
+    padding: 10px 8px;
+    margin: 4px 0.01px;
+    border: 1px solid;
+    border-radius: 2px;
+    font: inherit;
+    font-size: 15px;
+    color: black;
+    border-color: grey;
+    width: 20%;
+    margin-bottom: 20px;
+  }
+
+
+
+}
 
 
 .linkList {

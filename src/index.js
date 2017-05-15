@@ -10,6 +10,7 @@ import './style.scss';
 // import { NewCategory } from './components/new_category';
 import NewModal from './components/new_category_modal';
 import NavBar from './components/nav';
+import Payment from './components/payment';
 
 
 // basics for this were taken from https://www.npmjs.com/package/react-modal website
@@ -63,6 +64,7 @@ class App extends Component {
           <button id="modal-button" onClick={this.switchMode}>
             + Create a Category
           </button>
+          <Payment />
           <NewModal show={this.state.isOpen} links={this.state.links} create={this.createCategory} onClose={this.switchMode}> Stuff here </NewModal>
         </div>
       </div>

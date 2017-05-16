@@ -22,6 +22,7 @@ class App extends Component {
 
     this.state = {
       categories: Immutable.Map(),
+      selectedKey: '',
       selectedCat: {
         title: '',
         links: [],
@@ -48,6 +49,7 @@ class App extends Component {
       this.setState({ categories: allCats });
     });
   }
+
   switchMode() {
     this.setState({
       isOpen: !this.state.isOpen,
@@ -70,9 +72,10 @@ class App extends Component {
 
     this.switchMode();
   }
-  chooseCat(cat) {
+  chooseCat(key, cat) {
     this.setState({
       selectedCat: cat,
+      selectedKey: key,
       chosen: true,
     });
   }
@@ -81,11 +84,12 @@ class App extends Component {
       return (
         <div>
           {
-          this.state.categories.entrySeq().map(([key, cat]) => {
+          this.state.categories.entrySeq().map(([id, cat]) => {
             return (
               <div>
                 <div className="cat">
-                  <button onClick={clicked => this.chooseCat(cat)}>
+                  <button onClick={(i, c) => this.chooseCat(id, cat)}>
+                    {id}
                     {cat.title}
                   </button>
                 </div>
@@ -118,7 +122,7 @@ class App extends Component {
           </button>
           <Payment />
           <NewModal show={this.state.isOpen} links={this.state.links} create={this.createCategory} onClose={this.switchMode}> Stuff here </NewModal>
-          <CategoryModal cat={this.state.selectedCat} show={this.state.chosen} onClose={this.switchChosen}> Stuff here </CategoryModal>
+          <CategoryModal id={this.state.selectedKey} cat={this.state.selectedCat} show={this.state.chosen} onClose={this.switchChosen}> Stuff here </CategoryModal>
         </div>
         <div className="categories">
           {this.showCats()}

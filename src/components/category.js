@@ -13,15 +13,21 @@ class Category extends Component {
     this.stopEditing = this.stopEditing.bind(this);
     this.removeLink = this.removeLink.bind(this);
     this.updateTitle = this.updateTitle.bind(this);
+    this.deleteCat = this.deleteCat.bind(this);
   }
   componentDidMount() {
-    console.log(this.props.cat);
+    // console.log(this.props.cat);
   }
   startEditing() {
     this.setState({ isEditing: true });
   }
   stopEditing() {
+    // send edits to firebase
     this.setState({ isEditing: false });
+  }
+  deleteCat() {
+    console.log(`key is ${this.props.id}`);
+    // send delete request to firebase
   }
   updateTitle(event) {
     this.setState({ title: event.target.value });
@@ -57,6 +63,7 @@ class Category extends Component {
       }
             </ul>
             <button onClick={this.stopEditing}>Done</button>
+            <button onClick={this.deleteCat}>Delete</button>
           </div>
         );
       } else {

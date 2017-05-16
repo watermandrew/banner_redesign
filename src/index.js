@@ -26,6 +26,7 @@ class App extends Component {
     };
     this.switchMode = this.switchMode.bind(this);
     this.createCategory = this.createCategory.bind(this);
+    this.chooseCat = this.chooseCat.bind(this);
   }
   componentDidMount() {
     firebasedb.fetchAllLinks((links) => {
@@ -46,6 +47,9 @@ class App extends Component {
 
     this.switchMode();
   }
+  chooseCat(links) {
+    console.log(links);
+  }
   render() {
     return (
       <div>
@@ -55,6 +59,20 @@ class App extends Component {
             open me!!
           </button>
           <NewModal show={this.state.isOpen} links={this.state.links} create={this.createCategory}> Stuff here </NewModal>
+        </div>
+        <div className="categories">
+          {this.state.categories.map((cat) => {
+            console.log(cat);
+            return (
+              <div>
+                <div className="cat">
+                  <button onClick={clicked => this.chooseCat(cat.links)}>
+                    {cat.title}
+                  </button>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     );

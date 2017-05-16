@@ -15,11 +15,6 @@ class CategoryModal extends React.Component {
     this.switchMode = this.switchMode.bind(this);
     this.wantsToCancel = this.wantsToCancel.bind(this);
   }
-
-  componentDidMount() {
-    console.log(this.props.cat);
-  }
-
   switchMode() {
     this.setState({
       isOpen: !this.state.isOpen,
@@ -63,7 +58,7 @@ class CategoryModal extends React.Component {
     return (
       <div className="backdrop" style={backdropStyle}>
         <div className="modal" style={modalStyle}>
-          <Category cat={this.props.cat} />
+          <Category cat={this.props.cat} id={this.props.id} />
           <div id="footer">
             <div className="container">
               <button id="close-modal" onClick={this.props.onClose}>Close</button>

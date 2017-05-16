@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 // import Category from './components/category';
 // import Modal from './Modal';
+import Profile from './components/profile';
 
 import * as firebasedb from './firebasedb';
 
@@ -9,6 +10,7 @@ import './style.scss';
 // import { NewCategory } from './components/new_category';
 import NewModal from './components/new_category_modal';
 import NavBar from './components/nav';
+import Payment from './components/payment';
 
 
 // basics for this were taken from https://www.npmjs.com/package/react-modal website
@@ -42,6 +44,11 @@ class App extends Component {
       isOpen: !this.state.isOpen,
     });
   }
+  wantsToCancel() {
+    this.setState({
+      wantsCancel: true,
+    });
+  }
   createCategory(cat) {
     firebasedb.createCategory(cat);
 
@@ -54,11 +61,20 @@ class App extends Component {
     return (
       <div>
         <NavBar />
-        <div className="modal-pop-up">
-          <button onClick={this.switchMode}>
-            open me!!
+        <Profile />
+        <div id="checklist">
+          <li>MY CHECKLIST</li>
+          <li>Check in, spring 2017</li>
+          <li>Fall Room Draw</li>
+          <li>Course registration</li>
+          <li>+ Add an item</li>
+        </div>
+        <div>
+          <button id="modal-button" onClick={this.switchMode}>
+            + Create a Category
           </button>
-          <NewModal show={this.state.isOpen} links={this.state.links} create={this.createCategory}> Stuff here </NewModal>
+          <Payment />
+          <NewModal show={this.state.isOpen} links={this.state.links} create={this.createCategory} onClose={this.switchMode}> Stuff here </NewModal>
         </div>
         <div className="categories">
           {this.state.categories.map((cat) => {

@@ -13,6 +13,7 @@ class NewCategory extends Component {
     this.onInputChange = this.onInputChange.bind(this);
     this.onButtonClick = this.onButtonClick.bind(this);
     this.createCategory = this.createCategory.bind(this);
+
     // this.onButtonClick = this.onButtonClick.bind(this);
   }
   // componentDidMount() {
@@ -22,9 +23,23 @@ class NewCategory extends Component {
     this.setState({ title: event.target.value });
   }
   onButtonClick(selected) {
+    console.log(selected);
     const newArray = this.state.selectedLinks;
-    newArray.push(selected);
-    this.setState({ selectedLinks: newArray });
+    if (document.getElementById(selected).textContent === 'Add') {
+      newArray.push(selected);
+      this.setState({ selectedLinks: newArray });
+      document.getElementById(selected).textContent = 'Delete';
+      console.log('selected links');
+      console.log(this.state.selectedLinks);
+    } else if (document.getElementById(selected).textContent === 'Delete') {
+      document.getElementById(selected).textContent = 'Add';
+      const index = newArray.indexOf(selected);
+      if (index > -1) {
+        newArray.splice(index, 1);
+        this.setState({ selectedLinks: newArray });
+        console.log(this.state.selectedLinks);
+      }
+    }
   }
 
 
@@ -33,21 +48,21 @@ class NewCategory extends Component {
       title: this.state.title,
       links: this.state.selectedLinks,
     };
-
     this.props.create(cat);
   }
 
-
   render() {
     return (
-      <div>
-        <div>New Category</div>
-        <div>Title: <input onChange={this.onInputChange} value={this.state.title} /></div>
+      <div id="new-category">
+        <h2>Create a New Category</h2>
+        <div>Title: <input type="text" name="My Category Name" placeholder="Type a new category name here" onChange={this.onInputChange} value={this.state.title} /></div>
+        <hr />
         {this.state.links.map((link) => {
-          console.log(link);
+          // console.log(link);
           return (
-            <div>
-              <div>{link}<button onClick={clicked => this.onButtonClick(link)}>Add</button></div>
+            <div className="modal-links">
+              <li>{link}</li>
+              <button className="add-button" id={link} onClick={clicked => this.onButtonClick(link)}>Add</button>
             </div>
           );
         })}

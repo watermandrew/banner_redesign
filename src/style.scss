@@ -1,24 +1,116 @@
 body {
-
+  overflow: scroll;
 }
 
 nav {
   align-items: center;
 }
 
+b{
+  color: red;
+}
+
 #nav-bar {
   margin: 0;
   background-color: green;
+  //offical green: 0, .412, .243
   display: flex;
-  justify-content: space-between;
+  //height: 100%;
   align-items: center;
   color: white;
   font-size: 2.5em;
-  padding-left: 250px;
+  padding-left: 350px;
   padding-top: 10px;
   padding-bottom: 10px;
 
 }
+.heading {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: left;
+}
+//
+// input[type="radio"] {
+//     display:none;
+// }
+//
+
+//
+input[type="radio"]{
+    display:inline-block;
+    cursor:pointer;
+}
+
+input[type="radio"] + label {
+    display:inline-block;
+    cursor:pointer;
+}
+
+#card-type{
+  display: flex;
+  width: 20%
+}
+
+#card-type:hover {
+  display: flex;
+  background-color: lightblue;
+  width: 20%;
+
+}
+
+input[type="radio"]:checked{
+    display: flex;
+    background-color: red;
+}
+
+
+input[type="radio"]:checked + label{
+    display: flex;
+    justify-content: center;
+    background-color: lightblue;
+
+}
+
+
+#new-category {
+  h2 {
+    padding-top: 0px;
+    text-align: center;
+  }
+  overflow: scroll;
+}
+
+input[type=text], select {
+  padding: 10px 8px;
+  margin: 4px 0.01px;
+  border: 1px solid;
+  border-radius: 2px;
+  font: inherit;
+  font-size: 15px;
+  color: black;
+  border-color: grey;
+  width: 80%;
+  margin-bottom: 20px;
+}
+
+.inputs {
+  input[type=text], select {
+    padding: 10px 8px;
+    margin: 4px 0.01px;
+    border: 1px solid;
+    border-radius: 2px;
+    font: inherit;
+    font-size: 15px;
+    color: black;
+    border-color: grey;
+    width: 20%;
+    margin-bottom: 20px;
+  }
+
+
+
+}
+
 
 .linkList {
   display: flex;
@@ -28,4 +120,108 @@ nav {
 
 li {
   list-style-type: none;
+}
+
+#profile{
+  display: flex;
+  flex-flow: column nowrap;
+  // justify-content: center;
+  align-items: left;
+  padding-left: 10px;
+  #profile-info {
+    font-size: 1em;
+    color: black;
+    font-weight: lighter;
+  }
+  .vr {
+    width:5px;
+    background-color: lightgrey;
+    position:absolute;
+    top:0;
+    bottom: 0;
+    left:200px;
+  }
+}
+
+.modal-links {
+
+    display: flex;
+    flex-direction: column nowrap;
+    color: black;
+    overflow: scroll;
+    align-items: center;
+    justify-content: space-between;
+    li {
+      padding-top: 10px;
+      padding-bottom: 30px;
+    }
+}
+
+#checklist {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: left;
+  padding-left: 10px;
+
+  li {
+    padding-bottom: 10px;
+    color: grey;
+  }
+
+}
+
+#modal-button:hover:not(active), #close-modal:hover:not(active){
+  background-color: lightgreen;
+}
+
+
+.add-button {
+  background-color: green;
+  border-radius: 2px;
+  border: none;
+  color: white;
+  font-size: 25px;
+  cursor: pointer;
+  padding: 10px 4px;
+  text-align: center;
+  text-decoration: none;
+  font: inherit;
+  margin-left: 70%;
+}
+
+#modal-button, #close-modal  {
+    background-color: green;
+    border-radius: 2px;
+    border: none;
+    color: white;
+    font-size: 25px;
+    cursor: pointer;
+    padding: 20px 20px 20px 20px;
+    text-align: center;
+    text-decoration: none;
+    font: inherit;
+    margin-left: 30%;
+    margin-right: 30%
+}
+
+#backdrop {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: white;
+  padding: 50;
+  overflow: scroll;
+
+  #modal {
+    background-color: white;
+    border-radius: 5;
+    max-width: 500;
+    min-height: 300;
+    margin: 0 auto;
+    padding: 30;
+    overflow: scroll;
+  }
+
 }

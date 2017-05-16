@@ -4,7 +4,6 @@ import ReactDOM from 'react-dom';
 // import Modal from './Modal';
 import Profile from './components/profile';
 import Immutable from 'immutable';
-
 import * as firebasedb from './firebasedb';
 
 import './style.scss';

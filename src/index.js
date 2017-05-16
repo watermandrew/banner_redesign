@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import Immutable from 'immutable';
 // import Category from './components/category';
 // import Modal from './Modal';
 import Profile from './components/profile';
-import Immutable from 'immutable';
 import * as firebasedb from './firebasedb';
 
 import './style.scss';
@@ -35,6 +35,7 @@ class App extends Component {
     this.switchMode = this.switchMode.bind(this);
     this.createCategory = this.createCategory.bind(this);
     this.chooseCat = this.chooseCat.bind(this);
+    this.switchChosen = this.switchChosen.bind(this);
   }
   componentDidMount() {
     firebasedb.fetchAllLinks((links) => {
@@ -52,11 +53,18 @@ class App extends Component {
       isOpen: !this.state.isOpen,
     });
   }
+  switchChosen() {
+    this.setState({
+      chosen: !this.state.chosen,
+    });
+  }
+
   wantsToCancel() {
     this.setState({
       wantsCancel: true,
     });
   }
+
   createCategory(cat) {
     firebasedb.createCategory(cat);
 
@@ -88,10 +96,10 @@ class App extends Component {
         </div>);
     }
   }
-  showChosen() {
-          // <CategoryModal cat={this.state.selectedCat} show={this.state.chosen} onClose={this.switchMode}> Stuff here </CategoryModal>
-
-  }
+  // showChosen() {
+  //         // <CategoryModal cat={this.state.selectedCat} show={this.state.chosen} onClose={this.switchMode}> Stuff here </CategoryModal>
+  //
+  // }
   render() {
     return (
       <div>
@@ -110,7 +118,7 @@ class App extends Component {
           </button>
           <Payment />
           <NewModal show={this.state.isOpen} links={this.state.links} create={this.createCategory} onClose={this.switchMode}> Stuff here </NewModal>
-          <CategoryModal cat={this.state.selectedCat} show={this.state.chosen}> Stuff here </CategoryModal>
+          <CategoryModal cat={this.state.selectedCat} show={this.state.chosen} onClose={this.switchChosen}> Stuff here </CategoryModal>
         </div>
         <div className="categories">
           {this.showCats()}

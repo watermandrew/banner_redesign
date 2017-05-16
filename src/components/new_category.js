@@ -13,6 +13,7 @@ class NewCategory extends Component {
     this.onInputChange = this.onInputChange.bind(this);
     this.onButtonClick = this.onButtonClick.bind(this);
     this.createCategory = this.createCategory.bind(this);
+
     // this.onButtonClick = this.onButtonClick.bind(this);
   }
   // componentDidMount() {
@@ -49,7 +50,6 @@ class NewCategory extends Component {
     };
     this.props.create(cat);
   }
-
 
   render() {
     return (

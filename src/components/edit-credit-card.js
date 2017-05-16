@@ -5,8 +5,8 @@ class CreditCardEdit extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: 'Divya',
-      number: '1234 5678 1234 4234',
+      name: '',
+      number: '',
     };
     this.onChangeName = this.onChangeName.bind(this);
     this.onChangeNumber = this.onChangeNumber.bind(this);
@@ -22,14 +22,19 @@ class CreditCardEdit extends Component {
 
   render() {
     return (
-      <div>
+      <div id="payment">
         <div className="inputs">
-          <input value={this.state.name} onChange={this.onChangeName} placeholder="Name on Card" />
+          <div>Name on Card: <input type="text" value={this.state.name} onChange={this.onChangeName} placeholder="e.g. Jane Doe" /></div>
         </div>
         <div className="inputs">
-          <input value={this.state.number} onChange={this.onChangeNumber} placeholder="Card Number" />
+          <div> Card Number: <input type="text" value={this.state.number} onChange={this.onChangeNumber} placeholder="xxxx-xxxx-xxxx-xxxx" /></div>
         </div>
-        <button>Edit Card Info</button>
+        <div className="inputs">
+          <div> CVV Security code: <input type="text" value={this.state.number} onChange={this.onChangeNumber} placeholder="cvv" /></div>
+        </div>
+        <div className="inputs">
+          <div> Expiration Date: <input type="text" value={this.state.number} onChange={this.onChangeNumber} placeholder="MM/YY, e.g. 01/21" /></div>
+        </div>
       </div>
     );
   }

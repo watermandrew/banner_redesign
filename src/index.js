@@ -3,11 +3,13 @@ import ReactDOM from 'react-dom';
 // import Category from './components/category';
 // import Modal from './Modal';
 import Profile from './components/profile';
+import Immutable from 'immutable';
 import * as firebasedb from './firebasedb';
 
 import './style.scss';
 // import { NewCategory } from './components/new_category';
 import NewModal from './components/new_category_modal';
+import CategoryModal from './components/category_modal';
 import NavBar from './components/nav';
 import Payment from './components/payment';
 
@@ -19,14 +21,20 @@ class App extends Component {
     super(props);
 
     this.state = {
-      categories: [],
+      categories: Immutable.Map(),
+      selectedCat: {
+        title: '',
+        links: [],
+      },
       link: 'Hello',
       // links: ['link1', 'link2', 'link3', 'link4'],
       links: [],
       isOpen: false,
+      chosen: false,
     };
     this.switchMode = this.switchMode.bind(this);
     this.createCategory = this.createCategory.bind(this);
+    this.chooseCat = this.chooseCat.bind(this);
   }
   componentDidMount() {
     firebasedb.fetchAllLinks((links) => {
@@ -34,7 +42,9 @@ class App extends Component {
     });
 
     firebasedb.fetchCategories((cats) => {
-      this.setState({ categories: cats });
+      const allCats = Immutable.Map(cats);
+
+      this.setState({ categories: allCats });
     });
   }
   switchMode() {
@@ -51,6 +61,36 @@ class App extends Component {
     firebasedb.createCategory(cat);
 
     this.switchMode();
+  }
+  chooseCat(cat) {
+    this.setState({
+      selectedCat: cat,
+      chosen: true,
+    });
+  }
+  showCats() {
+    if (this.state.categories) {
+      return (
+        <div>
+          {
+          this.state.categories.entrySeq().map(([key, cat]) => {
+            return (
+              <div>
+                <div className="cat">
+                  <button onClick={clicked => this.chooseCat(cat)}>
+                    {cat.title}
+                  </button>
+                </div>
+              </div>
+            );
+          })
+        }
+        </div>);
+    }
+  }
+  showChosen() {
+          // <CategoryModal cat={this.state.selectedCat} show={this.state.chosen} onClose={this.switchMode}> Stuff here </CategoryModal>
+
   }
   render() {
     return (
@@ -70,6 +110,10 @@ class App extends Component {
           </button>
           <Payment />
           <NewModal show={this.state.isOpen} links={this.state.links} create={this.createCategory} onClose={this.switchMode}> Stuff here </NewModal>
+          <CategoryModal cat={this.state.selectedCat} show={this.state.chosen}> Stuff here </CategoryModal>
+        </div>
+        <div className="categories">
+          {this.showCats()}
         </div>
       </div>
     );

@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 // import Category from './components/category';
 // import Modal from './Modal';
 import Profile from './components/profile';
-
 import * as firebasedb from './firebasedb';
 
 import './style.scss';

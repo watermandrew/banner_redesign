@@ -29,13 +29,7 @@ b{
   flex-flow: column nowrap;
   justify-content: left;
 }
-//
-// input[type="radio"] {
-//     display:none;
-// }
-//
 
-//
 input[type="radio"]{
     display:inline-block;
     cursor:pointer;
@@ -106,11 +100,11 @@ input[type=text], select {
     width: 20%;
     margin-bottom: 20px;
   }
-
-
-
 }
 
+#inputs-static {
+  text-align: center;
+}
 
 .linkList {
   display: flex;
@@ -144,7 +138,6 @@ li {
 }
 
 .modal-links {
-
     display: flex;
     flex-direction: column nowrap;
     color: black;

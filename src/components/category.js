@@ -47,14 +47,15 @@ class Category extends Component {
       if (this.state.isEditing) {
         return (
           <div>
-            <input onChange={this.updateTitle} value={this.state.title} />
+            <input className="inputs" type="text" onChange={this.updateTitle} value={this.state.title} />
+            <hr />
             <ul className="linkList">
               {
         this.state.links.map((link) => {
           return (
 
             <li>
-              <a href="#">{link}</a>
+              <a id="list-list" href="#">{link}</a>
               <button onClick={li => this.removeLink({ link })}>-</button>
             </li>
 
@@ -69,13 +70,14 @@ class Category extends Component {
       } else {
         return (
           <div>
-            <div>{this.state.title}</div>
+            <div id="inputs-static">{this.state.title}</div>
+            <hr />
             <ul className="linkList">
               {
         this.state.links.map((link) => {
           return (
             <li>
-              <a href="#">{link}</a>
+              <a id="list-list"href="#">{link}</a>
             </li>
           );
         })

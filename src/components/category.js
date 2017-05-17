@@ -129,7 +129,7 @@ class Category extends Component {
           return (
             console.log(link),
               <li>
-                <a id="list-list"href="#">{link}</a>
+                <Link to={'/payment'}>{link}</Link>
               </li>
           );
         })

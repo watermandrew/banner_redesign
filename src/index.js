@@ -86,12 +86,12 @@ class App extends Component {
           {
           this.state.categories.entrySeq().map(([id, cat]) => {
             return (
-              <div>
-                <div className="cat">
-                  <button onClick={(i, c) => this.chooseCat(id, cat)}>
-                    {id}
+              <div className="many-cats">
+                <div>
+                  <button className="cat"onClick={(i, c) => this.chooseCat(id, cat)}>
                     {cat.title}
                   </button>
+                  <br />
                 </div>
               </div>
             );

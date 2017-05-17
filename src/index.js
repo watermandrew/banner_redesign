@@ -37,6 +37,9 @@ class App extends Component {
     this.createCategory = this.createCategory.bind(this);
     this.chooseCat = this.chooseCat.bind(this);
     this.switchChosen = this.switchChosen.bind(this);
+    this.deleteCat = this.deleteCat.bind(this);
+    this.updateTitle = this.updateTitle.bind(this);
+    this.updateLinks = this.updateLinks.bind(this);
   }
   componentDidMount() {
     firebasedb.fetchAllLinks((links) => {
@@ -79,6 +82,23 @@ class App extends Component {
       chosen: true,
     });
   }
+  deleteCat(id) {
+    firebasedb.deleteCategory(id);
+    this.setState({
+      selectedCat: {
+        title: '',
+        links: [],
+      },
+      selectedKey: '',
+      chosen: false,
+    });
+  }
+  updateTitle(id, newTitle) {
+    firebasedb.updateTitle(id, newTitle);
+  }
+  updateLinks(id, newLinks) {
+    firebasedb.updateLinks(id, newLinks);
+  }
   showCats() {
     if (this.state.categories) {
       return (
@@ -86,6 +106,7 @@ class App extends Component {
           {
           this.state.categories.entrySeq().map(([id, cat]) => {
             return (
+
               <div className="many-cats">
                 <div>
                   <button className="cat"onClick={(i, c) => this.chooseCat(id, cat)}>
@@ -97,13 +118,10 @@ class App extends Component {
             );
           })
         }
-        </div>);
+        </div>
+      );
     }
   }
-  // showChosen() {
-  //         // <CategoryModal cat={this.state.selectedCat} show={this.state.chosen} onClose={this.switchMode}> Stuff here </CategoryModal>
-  //
-  // }
   render() {
     return (
       <div>
@@ -122,7 +140,7 @@ class App extends Component {
           </button>
           <Payment />
           <NewModal show={this.state.isOpen} links={this.state.links} create={this.createCategory} onClose={this.switchMode}> Stuff here </NewModal>
-          <CategoryModal id={this.state.selectedKey} cat={this.state.selectedCat} show={this.state.chosen} onClose={this.switchChosen}> Stuff here </CategoryModal>
+          <CategoryModal id={this.state.selectedKey} cat={this.state.selectedCat} show={this.state.chosen} onClose={this.switchChosen} deleteCat={this.deleteCat} updateTitle={this.updateTitle} updateLinks={this.updateLinks}> Stuff here </CategoryModal>
         </div>
         <div className="categories">
           {this.showCats()}

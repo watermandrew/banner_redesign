@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import * as firebasedb from '../firebasedb';
+
 class Category extends Component {
   constructor(props) {
     super(props);
@@ -7,30 +9,68 @@ class Category extends Component {
     this.state = {
       title: this.props.cat.title,
       links: this.props.cat.catLinks,
+      addLinks: [],
     };
 
     this.startEditing = this.startEditing.bind(this);
     this.stopEditing = this.stopEditing.bind(this);
+    this.addLink = this.addLink.bind(this);
     this.removeLink = this.removeLink.bind(this);
     this.updateTitle = this.updateTitle.bind(this);
     this.deleteCat = this.deleteCat.bind(this);
   }
   componentDidMount() {
-    // console.log(this.props.cat);
+    firebasedb.fetchAllLinks((links) => {
+      const links_for_adding = [];
+      for (const i in links) {
+        let inList = false;
+        for (const j in this.state.links) {
+          if (links[i] === this.state.links[j]) {
+            inList = true;
+            break;
+          }
+        }
+        if (!inList) {
+          links_for_adding.push(links[i]);
+        }
+      }
+
+      this.setState({ addLinks: links_for_adding });
+    });
   }
   startEditing() {
     this.setState({ isEditing: true });
   }
   stopEditing() {
     // send edits to firebase
+    this.props.updateTitle(this.props.id, this.state.title);
+    this.props.updateLinks(this.props.id, this.state.links);
     this.setState({ isEditing: false });
   }
   deleteCat() {
+    this.props.deleteCat(this.props.id);
     console.log(`key is ${this.props.id}`);
     // send delete request to firebase
   }
   updateTitle(event) {
     this.setState({ title: event.target.value });
+  }
+  addLink(selectedLink) {
+    const newLinks = this.state.links;
+    newLinks.push(selectedLink.link);
+
+    const newAddLinks = [];
+
+    for (let i = 0; i < this.state.addLinks.length; i += 1) {
+      if (this.state.addLinks[i] !== selectedLink.link) {
+        newAddLinks.push(this.state.addLinks[i]);
+      }
+    }
+
+    this.setState({
+      links: newLinks,
+      addLinks: newAddLinks,
+    });
   }
   removeLink(selectedLink) {
     const newLinks = [];
@@ -57,6 +97,18 @@ class Category extends Component {
             <li>
               <a id="list-list" href="#">{link} </a>
               <i className="fa fa-times fa-2x " aria-hidden="true" color="red" onClick={li => this.removeLink({ link })} />
+            </li>
+
+          );
+        })
+      }
+              {
+        this.state.addLinks.map((link) => {
+          return (
+
+            <li>
+              <a id="list-list" href="#">{link}</a>
+              <button onClick={li => this.addLink({ link })}>+</button>
             </li>
 
           );

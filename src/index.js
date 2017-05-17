@@ -12,9 +12,12 @@ import NewModal from './components/new_category_modal';
 import CategoryModal from './components/category_modal';
 import NavBar from './components/nav';
 import Payment from './components/payment';
+import Checklist from './components/checklist';
+import Button from './components/cat_button';
 
 
 // basics for this were taken from https://www.npmjs.com/package/react-modal website
+
 
 class App extends Component {
   constructor(props) {
@@ -52,6 +55,7 @@ class App extends Component {
       this.setState({ categories: allCats });
     });
   }
+
 
   switchMode() {
     this.setState({
@@ -122,30 +126,24 @@ class App extends Component {
       );
     }
   }
+
   render() {
     return (
-      <div>
-        <NavBar />
-        <Profile />
-        <div id="checklist">
-          <li>MY CHECKLIST</li>
-          <li>Check in, spring 2017</li>
-          <li>Fall Room Draw</li>
-          <li>Course registration</li>
-          <li>+ Add an item</li>
-        </div>
+      console.log('here'),
         <div>
-          <button id="modal-button" onClick={this.switchMode}>
-            + Create a Category
-          </button>
-          <Payment />
-          <NewModal show={this.state.isOpen} links={this.state.links} create={this.createCategory} onClose={this.switchMode}> Stuff here </NewModal>
-          <CategoryModal id={this.state.selectedKey} cat={this.state.selectedCat} show={this.state.chosen} onClose={this.switchChosen} deleteCat={this.deleteCat} updateTitle={this.updateTitle} updateLinks={this.updateLinks}> Stuff here </CategoryModal>
+          <NavBar />
+          <Profile />
+          <Checklist />
+          <div>
+            <Button switchM={this.switchMode} />
+            <Payment />
+            <NewModal show={this.state.isOpen} links={this.state.links} create={this.createCategory} onClose={this.switchMode}> Stuff here </NewModal>
+            <CategoryModal id={this.state.selectedKey} cat={this.state.selectedCat} show={this.state.chosen} onClose={this.switchChosen} deleteCat={this.deleteCat} updateTitle={this.updateTitle} updateLinks={this.updateLinks}> Stuff here </CategoryModal>
+          </div>
+          <div className="categories">
+            {this.showCats()}
+          </div>
         </div>
-        <div className="categories">
-          {this.showCats()}
-        </div>
-      </div>
     );
   }
 }

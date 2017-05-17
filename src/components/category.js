@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import { withRouter, Link } from 'react-router-dom';
 import * as firebasedb from '../firebasedb';
 
 class Category extends Component {
@@ -105,7 +105,6 @@ class Category extends Component {
               {
         this.state.addLinks.map((link) => {
           return (
-
             <li>
               <a id="list-list" href="#">{link}</a>
               <button onClick={li => this.addLink({ link })}>+</button>
@@ -128,9 +127,10 @@ class Category extends Component {
               {
         this.state.links.map((link) => {
           return (
-            <li>
-              <a id="list-list"href="#">{link}</a>
-            </li>
+            console.log(link),
+              <li>
+                <a id="list-list"href="#">{link}</a>
+              </li>
           );
         })
       }
@@ -154,4 +154,5 @@ class Category extends Component {
   }
 }
 
-export default Category;
+// export default Category;
+export default withRouter(Category);

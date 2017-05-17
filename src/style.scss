@@ -53,24 +53,24 @@ b{
 }
 
 input[type="radio"]{
-    display:inline-block;
+    display:flex;
     cursor:pointer;
 }
 
 input[type="radio"] + label {
-    display:inline-block;
+    display:flex;
     cursor:pointer;
 }
 
 #card-type{
   display: flex;
-  width: 20%
+  width: 100%
 }
 
 #card-type:hover {
   display: flex;
   background-color: lightblue;
-  width: 20%;
+  width: 100%;
 
 }
 
@@ -119,7 +119,7 @@ input[type=text], select {
     font-size: 15px;
     color: black;
     border-color: grey;
-    width: 20%;
+    width: 50%;
     margin-bottom: 20px;
   }
 }
@@ -370,8 +370,17 @@ li {
   cursor: pointer;
 }
 
+
 .newPost {
-  padding-top: 80px;
+  text-align: center;
+}
+
+.heading {
+  align-items: center;
+}
+
+.cards {
+  text-align: center;
 }
 
 #creat-button {
@@ -431,4 +440,42 @@ li {
 #cat-button:hover {
   background-color: lighten(#4099FF, 20%);
   box-shadow: 10px 10px 10px lightgrey;
+}
+
+.fa-cc-mastercard, .fa-cc-visa {
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+#card-span {
+  font-size: 20px;
+  font-weight: bolder;
+  color: purple;
+  margin-top: 10px;
+}
+
+.cards {
+  margin-bottom: 15px;
+  margin-top: 30px;
+}
+
+#payment {
+  margin-top: 10px;
+  padding: 10px 10px;
+}
+
+#payment:hover {
+  background-color: lightblue;
+}
+
+#pay-button {
+  background-color: #4099FF;
+  color: white;
+  font-size: 25px;
+  cursor: pointer;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  font: inherit;
+  margin-top: 10px;
 }

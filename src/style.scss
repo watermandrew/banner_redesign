@@ -137,7 +137,7 @@ li {
   }
 }
 
-.modal-links {
+.modal-links{
     display: flex;
     flex-direction: column nowrap;
     color: black;
@@ -149,6 +149,20 @@ li {
       padding-bottom: 30px;
     }
 }
+
+.linkList {
+  display: flex;
+  flex-direction: column nowrap;
+  overflow: scroll;
+  align-items: left;
+  justify-content: space-between;
+  li {
+    padding-top: 10px;
+    padding-bottom: 30px;
+  }
+}
+
+
 
 #checklist {
   display: flex;
@@ -196,6 +210,20 @@ li {
     margin-left: 30%;
     margin-right: 30%
 }
+#edit-button {
+  background-color: lightgreen;
+  border-radius: 2px;
+  border: none;
+  color: white;
+  font-size: 25px;
+  cursor: pointer;
+  padding: 20px 20px;
+  text-align: center;
+  text-decoration: none;
+  font: inherit;
+  margin-left: 30%;
+  margin-right: 30%
+}
 
 #backdrop {
   position: fixed;
@@ -217,4 +245,44 @@ li {
     overflow: scroll;
   }
 
+}
+
+.cat {
+  background-color: green;
+  border-radius: 2px;
+  border: none;
+  color: white;
+  font-size: 35px;
+  cursor: pointer;
+  padding: 20px 20px 20px 20px;
+  margin-bottom: 100px;
+  text-align: center;
+  text-decoration: none;
+  font: inherit;
+  border-color: black;
+  border-width: 10px;
+  width: 200px;
+  height: 200px;
+}
+
+.cat:hover {
+  background-color: lighten(green, 10%);
+}
+
+.many-cats {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: flex-end;
+  justify-content: flex-end;
+
+}
+
+
+.fa-times{
+  color: darkred;
+}
+
+.fa-times:hover{
+  color: red;
+  cursor: pointer;
 }

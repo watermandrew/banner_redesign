@@ -87,7 +87,7 @@ class Category extends Component {
       if (this.state.isEditing) {
         return (
           <div>
-            <input className="inputs" type="text" onChange={this.updateTitle} value={this.state.title} />
+            <h2><input className="inputs" type="text" onChange={this.updateTitle} value={this.state.title} /></h2>
             <hr />
             <ul className="linkList">
               {
@@ -95,8 +95,8 @@ class Category extends Component {
           return (
 
             <li>
-              <a id="list-list" href="#">{link}</a>
-              <button onClick={li => this.removeLink({ link })}>-</button>
+              <a id="list-list" href="#">{link} </a>
+              <i className="fa fa-times fa-2x " aria-hidden="true" color="red" onClick={li => this.removeLink({ link })} />
             </li>
 
           );
@@ -115,14 +115,14 @@ class Category extends Component {
         })
       }
             </ul>
-            <button onClick={this.stopEditing}>Done</button>
-            <button onClick={this.deleteCat}>Delete</button>
+            <button id="modal-button"onClick={this.stopEditing}>Done</button>
+            <button id="modal-button" onClick={this.deleteCat}>Delete</button>
           </div>
         );
       } else {
         return (
           <div>
-            <div id="inputs-static">{this.state.title}</div>
+            <h2><div id="inputs-static">{this.state.title}</div></h2>
             <hr />
             <ul className="linkList">
               {
@@ -135,7 +135,10 @@ class Category extends Component {
         })
       }
             </ul>
-            <button onClick={() => this.startEditing()}>Edit</button>
+            <div id="edit-button">
+              <i className="fa fa-pencil-square-o fa-2x" aria-hidden="true" onClick={() => this.startEditing()}> Edit</i>
+            </div>
+
           </div>
         );
       }

@@ -61,10 +61,8 @@
        <div className="backdrop" style={backdropStyle}>
          <div className="modal" style={modalStyle}>
            <NewCategory links={this.props.links} create={this.props.create} />
-           <div id="footer">
-             <div className="container">
-               <button id="close-modal" onClick={this.props.onClose}>Close</button>
-             </div>
+           <div className="container">
+             <button id="close-button" onClick={this.props.onClose}>Close</button>
            </div>
          </div>
        </div>

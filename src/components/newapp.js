@@ -103,7 +103,7 @@ class NewApp extends Component {
   showCats() {
     if (this.state.categories) {
       return (
-        <div>
+        <div id="categories">
           {
           this.state.categories.entrySeq().map(([id, cat]) => {
             return (
@@ -130,17 +130,22 @@ class NewApp extends Component {
       console.log('here'),
         <div>
           <NavBar />
-          <Profile />
-          <Checklist />
-          <div>
-            <Button switchM={this.switchMode} />
-            <NewModal show={this.state.isOpen} links={this.state.links} create={this.createCategory} onClose={this.switchMode}> Stuff here </NewModal>
-            <CategoryModal id={this.state.selectedKey} cat={this.state.selectedCat} show={this.state.chosen} onClose={this.switchChosen} deleteCat={this.deleteCat} updateTitle={this.updateTitle} updateLinks={this.updateLinks}> Stuff here </CategoryModal>
-          </div>
-          <div className="categories">
-            {this.showCats()}
+          <div id="whole-enchilada">
+            <div id="column">
+              <Profile />
+              <Checklist />
+            </div>
+            <div>
+              <Button switchM={this.switchMode} />
+              <NewModal show={this.state.isOpen} links={this.state.links} create={this.createCategory} onClose={this.switchMode}> Stuff here </NewModal>
+              <CategoryModal id={this.state.selectedKey} cat={this.state.selectedCat} show={this.state.chosen} onClose={this.switchChosen} deleteCat={this.deleteCat} updateTitle={this.updateTitle} updateLinks={this.updateLinks}> Stuff here </CategoryModal>
+            </div>
+            <div className="categories">
+              {this.showCats()}
+            </div>
           </div>
         </div>
+
     );
   }
 }

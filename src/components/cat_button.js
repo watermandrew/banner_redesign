@@ -13,7 +13,7 @@ class CatButton extends Component {
 
   render() {
     return (
-      <button id="modal-button" onClick={this.switchM}>
+      <button id="cat-button" onClick={this.switchM}>
       + Create a Category
       </button>
     );

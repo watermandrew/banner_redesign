@@ -1,5 +1,8 @@
-body {
+html, body {
   overflow: scroll;
+  margin:0;
+  padding:0;
+  font-family: Lato;
 }
 
 nav {
@@ -7,8 +10,27 @@ nav {
 }
 
 b{
-  color: red;
+  color: blue;
 }
+
+#column {
+  display: flex;
+  flex-flow: column;
+}
+
+#whole-enchilada {
+  display: flex;
+  flex-flow: row;
+}
+
+
+#categories {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: flex-end;
+}
+
 
 #nav-bar {
   margin: 0;
@@ -126,10 +148,11 @@ li {
     font-size: 1em;
     color: black;
     font-weight: lighter;
+    text-align: center;
   }
   .vr {
     width:5px;
-    background-color: lightgrey;
+    background-color: green;
     position:absolute;
     top:0;
     bottom: 0;
@@ -146,7 +169,7 @@ li {
     justify-content: space-between;
     li {
       padding-top: 10px;
-      padding-bottom: 30px;
+      padding-bottom: 20px;
     }
 }
 
@@ -161,9 +184,6 @@ li {
     padding-bottom: 30px;
   }
 }
-
-
-
 #checklist {
   display: flex;
   flex-flow: column nowrap;
@@ -183,20 +203,25 @@ li {
 
 
 .add-button {
-  background-color: green;
+  background-color: white;
   border-radius: 2px;
   border: none;
-  color: white;
-  font-size: 25px;
+  color: darkgreen;
   cursor: pointer;
-  padding: 10px 4px;
   text-align: center;
   text-decoration: none;
   font: inherit;
-  margin-left: 70%;
+  font-weight: bolder;
+  font-size: 30px;
+  padding: 0px;
 }
 
-#modal-button, #close-modal  {
+.add-button:hover {
+  font-size: 35px;
+  color: lightgreen;
+}
+
+#modal-button {
     background-color: green;
     border-radius: 2px;
     border: none;
@@ -208,8 +233,48 @@ li {
     text-decoration: none;
     font: inherit;
     margin-left: 30%;
-    margin-right: 30%
+    margin-right: 30%;
 }
+
+#close-modal  {
+  al-button {
+      background-color: green;
+      border-radius: 2px;
+      border: none;
+      color: white;
+      font-size: 25px;
+      cursor: pointer;
+      padding: 20px 20px 20px 20px;
+      text-align: center;
+      text-decoration: none;
+      font: inherit;
+      margin-left: 30%;
+      margin-right: 30%;
+}}
+
+.container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+#create-modal {
+  background-color: green;
+  border-radius: 2px;
+  border: none;
+  color: white;
+  font-size: 25px;
+  cursor: pointer;
+  padding: 20px 20px 20px 20px;
+  text-align: center;
+  text-decoration: none;
+  font: inherit;
+  margin-left: 30%;
+  margin-right: 30%
+}
+
+
 #edit-button {
   background-color: lightgreen;
   border-radius: 2px;
@@ -250,31 +315,33 @@ li {
 .cat {
   background-color: green;
   border-radius: 2px;
-  border: none;
   color: white;
   font-size: 35px;
   cursor: pointer;
-  padding: 20px 20px 20px 20px;
-  margin-bottom: 100px;
+  padding: 20px 20px;
+  padding-right: 30px;
   text-align: center;
   text-decoration: none;
   font: inherit;
-  border-color: black;
-  border-width: 10px;
   width: 200px;
   height: 200px;
+  margin-right: 30px;
+  margin-left: 50px;
+  margin-top: 50px;
+  box-shadow: 7px 7px 7px lightgrey;
 }
 
 .cat:hover {
   background-color: lighten(green, 10%);
+  box-shadow: 10px 10px 10px lightgrey;
 }
 
 .many-cats {
   display: flex;
-  flex-direction: row-reverse;
-  align-items: flex-end;
-  justify-content: flex-end;
-
+  flex-direction: row wrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding-right: 10px;
 }
 
 
@@ -282,7 +349,86 @@ li {
   color: darkred;
 }
 
+.fa-user {
+  font-size: 7em;
+  padding-left: 38px;
+  padding-top: 5px;
+}
+
 .fa-times:hover{
   color: red;
   cursor: pointer;
+}
+
+.fa-plus {
+  font-size: 1.5em;
+  color: darkgreen;
+}
+
+.fa-plus:hover {
+  color: lightgreen;
+  cursor: pointer;
+}
+
+.newPost {
+  padding-top: 80px;
+}
+
+#creat-button {
+  background-color: green;
+  display: flex;
+  border-radius: 2px;
+  border: none;
+  color: white;
+  font-size: 25px;
+  margin-left: 85%;
+  margin-top: 20px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  font: inherit;
+  padding: 15px 15px;
+}
+
+#close-button {
+  background-color: orange;
+  display: flex;
+  border-radius: 2px;
+  border: none;
+  color: white;
+  font-size: 25px;
+  margin-left: 60%;
+  margin-top: 20px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  font: inherit;
+  padding: 15px 15px;
+}
+
+.footer {
+  margin-top: 0px;
+}
+
+#cat-button {
+  background-color: #4099FF;
+  border-radius: 2px;
+  color: white;
+  font-size: 35px;
+  cursor: pointer;
+  padding: 20px 20px;
+  margin-right: 30px;
+  margin-left: 50px;
+  margin-top: 50px;
+  text-align: center;
+  text-decoration: none;
+  font: inherit;
+  width: 200px;
+  height: 200px;
+  box-shadow: 7px 7px 7px lightgrey;
+}
+
+#cat-button:hover {
+  background-color: lighten(#4099FF, 20%);
+  box-shadow: 10px 10px 10px lightgrey;
 }

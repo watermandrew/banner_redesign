@@ -1,3 +1,4 @@
+
 import firebase from 'firebase';
 
 const config = {
@@ -31,4 +32,19 @@ export function createCategory(cat) {
     title: cat.title,
     catLinks: cat.links,
   });
+}
+
+
+export function updateTitle(id, newTitle) {
+  db.ref('categories').child(id).update({ title: newTitle });
+}
+
+export function updateLinks(id, newLinks) {
+  console.log(`newLinks are ${newLinks}`);
+  db.ref('categories').child(id).update({ catLinks: newLinks });
+}
+
+
+export function deleteCategory(id) {
+  db.ref('categories').child(id).remove();
 }

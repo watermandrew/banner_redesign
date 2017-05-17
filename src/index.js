@@ -22,6 +22,7 @@ class App extends Component {
 
     this.state = {
       categories: Immutable.Map(),
+      selectedKey: '',
       selectedCat: {
         title: '',
         links: [],
@@ -36,6 +37,9 @@ class App extends Component {
     this.createCategory = this.createCategory.bind(this);
     this.chooseCat = this.chooseCat.bind(this);
     this.switchChosen = this.switchChosen.bind(this);
+    this.deleteCat = this.deleteCat.bind(this);
+    this.updateTitle = this.updateTitle.bind(this);
+    this.updateLinks = this.updateLinks.bind(this);
   }
   componentDidMount() {
     firebasedb.fetchAllLinks((links) => {
@@ -48,6 +52,7 @@ class App extends Component {
       this.setState({ categories: allCats });
     });
   }
+
   switchMode() {
     this.setState({
       isOpen: !this.state.isOpen,
@@ -70,36 +75,53 @@ class App extends Component {
 
     this.switchMode();
   }
-  chooseCat(cat) {
+  chooseCat(key, cat) {
     this.setState({
       selectedCat: cat,
+      selectedKey: key,
       chosen: true,
     });
+  }
+  deleteCat(id) {
+    firebasedb.deleteCategory(id);
+    this.setState({
+      selectedCat: {
+        title: '',
+        links: [],
+      },
+      selectedKey: '',
+      chosen: false,
+    });
+  }
+  updateTitle(id, newTitle) {
+    firebasedb.updateTitle(id, newTitle);
+  }
+  updateLinks(id, newLinks) {
+    firebasedb.updateLinks(id, newLinks);
   }
   showCats() {
     if (this.state.categories) {
       return (
         <div>
           {
-          this.state.categories.entrySeq().map(([key, cat]) => {
+          this.state.categories.entrySeq().map(([id, cat]) => {
             return (
-              <div>
-                <div className="cat">
-                  <button onClick={clicked => this.chooseCat(cat)}>
+
+              <div className="many-cats">
+                <div>
+                  <button className="cat"onClick={(i, c) => this.chooseCat(id, cat)}>
                     {cat.title}
                   </button>
+                  <br />
                 </div>
               </div>
             );
           })
         }
-        </div>);
+        </div>
+      );
     }
   }
-  // showChosen() {
-  //         // <CategoryModal cat={this.state.selectedCat} show={this.state.chosen} onClose={this.switchMode}> Stuff here </CategoryModal>
-  //
-  // }
   render() {
     return (
       <div>
@@ -118,7 +140,7 @@ class App extends Component {
           </button>
           <Payment />
           <NewModal show={this.state.isOpen} links={this.state.links} create={this.createCategory} onClose={this.switchMode}> Stuff here </NewModal>
-          <CategoryModal cat={this.state.selectedCat} show={this.state.chosen} onClose={this.switchChosen}> Stuff here </CategoryModal>
+          <CategoryModal id={this.state.selectedKey} cat={this.state.selectedCat} show={this.state.chosen} onClose={this.switchChosen} deleteCat={this.deleteCat} updateTitle={this.updateTitle} updateLinks={this.updateLinks}> Stuff here </CategoryModal>
         </div>
         <div className="categories">
           {this.showCats()}

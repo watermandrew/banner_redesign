@@ -41,7 +41,7 @@ class CreditCardEdit extends Component {
           <div> Card Number: <input type="text" value={this.state.number} onChange={this.onChangeNumber} placeholder="xxxx-xxxx-xxxx-xxxx" /></div>
         </div>
         <div className="inputs">
-          <div> CVV Security code: <input type="text" value={this.state.cvv} onChange={this.onChangCVV} placeholder="cvv" /></div>
+          <div> Security code: <input type="text" value={this.state.cvv} onChange={this.onChangCVV} placeholder="cvv" /></div>
         </div>
         <div className="inputs">
           <div> Expiration Date: <input type="text" value={this.state.date} onChange={this.onChangeDate} placeholder="MM/YY, e.g. 01/21" /></div>

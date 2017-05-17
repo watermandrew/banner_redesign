@@ -16,6 +16,7 @@ import './style.scss';
 // import Button from './components/cat_button';
 import NewApp from './components/newapp';
 import Payment from './components/payment';
+import SignIn from './components/signin';
 
 
 // basics for this were taken from https://www.npmjs.com/package/react-modal website
@@ -30,7 +31,8 @@ const App = (props) => {
     <Router>
       <div>
         <Switch>
-          <Route exact path="/" component={NewApp} />
+          <Route exact path="/" component={SignIn} />
+          <Route path="/home" component={NewApp} />
           <Route path="/payment" component={Payment} />
           <Route component={FallBack} />
         </Switch>

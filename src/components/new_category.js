@@ -25,14 +25,14 @@ class NewCategory extends Component {
   onButtonClick(selected) {
     console.log(selected);
     const newArray = this.state.selectedLinks;
-    if (document.getElementById(selected).textContent === 'Add') {
+    if (document.getElementById(selected).textContent === '+') {
       newArray.push(selected);
       this.setState({ selectedLinks: newArray });
-      document.getElementById(selected).textContent = 'Delete';
+      document.getElementById(selected).textContent = '-';
       console.log('selected links');
       console.log(this.state.selectedLinks);
-    } else if (document.getElementById(selected).textContent === 'Delete') {
-      document.getElementById(selected).textContent = 'Add';
+    } else if (document.getElementById(selected).textContent === '-') {
+      document.getElementById(selected).textContent = '+';
       const index = newArray.indexOf(selected);
       if (index > -1) {
         newArray.splice(index, 1);
@@ -53,23 +53,28 @@ class NewCategory extends Component {
 
   render() {
     return (
-      <div id="new-category">
-        <h2>Create a New Category</h2>
-        <div>Title: <input type="text" name="My Category Name" placeholder="Type a new category name here" onChange={this.onInputChange} value={this.state.title} /></div>
-        <hr />
-        {this.state.links.map((link) => {
+      <div>
+        <div id="new-category">
+          <h2>Create a New Category</h2>
+          <div>Title: <input type="text" name="My Category Name" placeholder="Type a new category name here" onChange={this.onInputChange} value={this.state.title} /></div>
+          <hr />
+          <div><i><b>Select from the alphabetized links below:</b></i></div>
+          <br />
+          {this.state.links.map((link) => {
           // console.log(link);
-          return (
-            <div className="modal-links">
-              <li>{link}</li>
-              <button className="add-button" id={link} onClick={clicked => this.onButtonClick(link)}>Add</button>
-            </div>
-          );
-        })}
-        <button onClick={this.createCategory}>Create</button>
+            return (
+              <div className="modal-links">
+                <li>{link}</li>
+                <div role="button" className="add-button" id={link} onClick={clicked => this.onButtonClick(link)}>+</div>
+              </div>
+            );
+          })}
+        </div>
+        <button id="creat-button" onClick={this.createCategory}>Create</button>
       </div>
     );
   }
 }
+
 
 export default NewCategory;

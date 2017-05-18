@@ -50,6 +50,7 @@ class NewCategory extends Component {
   }
 
   render() {
+    console.log(this.state.links);
     return (
       <div>
         <div id="new-category">
@@ -59,6 +60,7 @@ class NewCategory extends Component {
           <div><i><b>Select from the alphabetized links below:</b></i></div>
           <br />
           {this.state.links.map((item) => {
+            console.log(item);
             return (
               <div className="modal-links">
                 <li>{item.name}</li>

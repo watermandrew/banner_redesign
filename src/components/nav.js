@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class NavBar extends Component {
   constructor(props) {
@@ -9,12 +10,14 @@ class NavBar extends Component {
   render() {
     return (
       <div id="nav">
-        <div id="nav-bar"> Dartmouth Banner Student Information System </div>
+        <div id="nav-bar">
+          <div> Dartmouth Banner Student Information System </div>
+          <Link to="/home"><i className="fa fa-home" aria-hidden="true" /></Link>
+          <Link to="/"><i className="fa fa-sign-out" aria-hidden="true" /></Link>
+        </div>
       </div>
     );
   }
 }
-
-  // export default NavBar;
 
 export default NavBar;

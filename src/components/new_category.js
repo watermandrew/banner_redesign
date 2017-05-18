@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Immutable from 'immutable';
 // import * as firebasedb from '../firebasedb';
 
 class NewCategory extends Component {
@@ -23,16 +24,16 @@ class NewCategory extends Component {
     this.setState({ title: event.target.value });
   }
   onButtonClick(selected) {
-    console.log(selected);
+    console.log(`selected is ${selected}`);
     const newArray = this.state.selectedLinks;
-    if (document.getElementById(selected).textContent === '+') {
+    if (document.getElementById(selected.name).textContent === '+') {
       newArray.push(selected);
       this.setState({ selectedLinks: newArray });
-      document.getElementById(selected).textContent = '-';
+      document.getElementById(selected.name).textContent = '-';
       console.log('selected links');
       console.log(this.state.selectedLinks);
-    } else if (document.getElementById(selected).textContent === '-') {
-      document.getElementById(selected).textContent = '+';
+    } else if (document.getElementById(selected.name).textContent === '-') {
+      document.getElementById(selected.name).textContent = '+';
       const index = newArray.indexOf(selected);
       if (index > -1) {
         newArray.splice(index, 1);
@@ -48,7 +49,23 @@ class NewCategory extends Component {
     };
     this.props.create(cat);
   }
-
+  showLinks() {
+    // const myMap = Immutable.Map(this.state.links);
+    // console.log(`map is ${myMap}`);
+    console.log(`this.state.links is ${this.state.links}`);
+    if (this.state.links) {
+      return (
+      this.state.links.map((item) => {
+        return (
+          <div className="modal-links">
+            <li>{item.name}</li>
+            <div role="button" className="add-button" id={item.name} onClick={clicked => this.onButtonClick(item)}>+</div>
+          </div>
+        );
+      })
+      );
+    }
+  }
   render() {
     console.log(this.state.links);
     return (
@@ -59,15 +76,7 @@ class NewCategory extends Component {
           <hr />
           <div><i><b>Select from the alphabetized links below:</b></i></div>
           <br />
-          {this.state.links.map((item) => {
-            console.log(item);
-            return (
-              <div className="modal-links">
-                <li>{item.name}</li>
-                <div role="button" className="add-button" id={item.name} onClick={clicked => this.onButtonClick(item.name)}>+</div>
-              </div>
-            );
-          })}
+          {this.showLinks()}
         </div>
         <div className="container">
           <button id="close-button" onClick={this.props.onClose}>Close</button>

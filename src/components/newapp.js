@@ -43,14 +43,17 @@ class NewApp extends Component {
     this.updateLinks = this.updateLinks.bind(this);
   }
   componentDidMount() {
-    firebasedb.fetchAllLinks((links) => {
-      console.log('Got to all links');
-      console.log(links);
-      this.setState({ links });
+
+    firebasedb.fetchAllLinks((items) => {
+      console.log(items);
+      const mapLinks = Immutable.Map(items);
+      this.setState({ links: mapLinks });
+
     });
 
     firebasedb.fetchCategories((cats) => {
       const allCats = Immutable.Map(cats);
+      console.log(`allCats is ${allCats}`);
 
       this.setState({ categories: allCats });
     });
@@ -108,6 +111,7 @@ class NewApp extends Component {
         <div id="categories">
           {
           this.state.categories.entrySeq().map(([id, cat]) => {
+            console.log(`cat is ${cat}`);
             return (
 
               <div className="many-cats">

@@ -135,12 +135,10 @@ class NewApp extends Component {
               <Profile />
               <Checklist />
             </div>
-            <div>
+            <div className="categories">
               <Button switchM={this.switchMode} />
               <NewModal show={this.state.isOpen} links={this.state.links} create={this.createCategory} onClose={this.switchMode}> Stuff here </NewModal>
               <CategoryModal id={this.state.selectedKey} cat={this.state.selectedCat} show={this.state.chosen} onClose={this.switchChosen} deleteCat={this.deleteCat} updateTitle={this.updateTitle} updateLinks={this.updateLinks}> Stuff here </CategoryModal>
-            </div>
-            <div className="categories">
               {this.showCats()}
             </div>
           </div>

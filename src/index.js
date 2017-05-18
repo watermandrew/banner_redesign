@@ -17,6 +17,7 @@ import './style.scss';
 import NewApp from './components/newapp';
 import Payment from './components/payment';
 import SignIn from './components/signin';
+import Checkin from './components/checkin';
 
 
 // basics for this were taken from https://www.npmjs.com/package/react-modal website
@@ -34,6 +35,7 @@ const App = (props) => {
           <Route exact path="/" component={SignIn} />
           <Route path="/home" component={NewApp} />
           <Route path="/payment" component={Payment} />
+          <Route path="/checkin" component={Checkin} />
           <Route component={FallBack} />
         </Switch>
       </div>

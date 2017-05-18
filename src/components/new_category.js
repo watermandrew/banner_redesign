@@ -67,6 +67,7 @@ class NewCategory extends Component {
     }
   }
   render() {
+    console.log(this.state.links);
     return (
       <div>
         <div id="new-category">

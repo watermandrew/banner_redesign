@@ -54,7 +54,10 @@ class Category extends Component {
     this.setState({ title: event.target.value });
   }
   addLink(selectedLink) {
-    const newLinks = this.state.links;
+    let newLinks = [];
+    if (this.state.links) {
+      newLinks = this.state.links;
+    }
     newLinks.push(selectedLink);
 
     const newAddLinks = [];
@@ -88,14 +91,35 @@ class Category extends Component {
     });
   }
   showLinks() {
-    if (this.state.links) {
-      if (this.state.isEditing) {
-        return (
-          <div>
-            <h2><input className="inputs" type="text" onChange={this.updateTitle} value={this.state.title} /></h2>
-            <hr />
-            <ul className="linkList">
-              {
+    if (this.state.isEditing && !this.state.links) {
+      return (
+        <div>
+          <h2><input className="inputs" type="text" onChange={this.updateTitle} value={this.state.title} /></h2>
+          <hr />
+          <ul className="linkList">
+            {
+    this.state.addLinks.map((item) => {
+      return (
+        <li>
+          <a id="list-list">{item.name}</a>
+          <button onClick={li => this.addLink(item)}>+</button>
+        </li>
+
+      );
+    })
+  }
+
+          </ul>
+          <button id="modal-button"onClick={this.stopEditing}>Done</button>
+          <button id="modal-button" onClick={this.deleteCat}>Delete</button>
+        </div>);
+    } else if (this.state.isEditing) {
+      return (
+        <div>
+          <h2><input className="inputs" type="text" onChange={this.updateTitle} value={this.state.title} /></h2>
+          <hr />
+          <ul className="linkList">
+            {
         this.state.links.map((item) => {
           return (
             <li>
@@ -105,7 +129,7 @@ class Category extends Component {
           );
         })
       }
-              {
+            {
         this.state.addLinks.map((item) => {
           return (
             <li>
@@ -116,18 +140,19 @@ class Category extends Component {
           );
         })
       }
-            </ul>
-            <button id="modal-button"onClick={this.stopEditing}>Done</button>
-            <button id="modal-button" onClick={this.deleteCat}>Delete</button>
-          </div>
-        );
-      } else {
-        return (
-          <div>
-            <h2><div id="inputs-static">{this.state.title}</div></h2>
-            <hr />
-            <ul className="linkList">
-              {
+
+          </ul>
+          <button id="modal-button"onClick={this.stopEditing}>Done</button>
+          <button id="modal-button" onClick={this.deleteCat}>Delete</button>
+        </div>
+      );
+    } else if (this.state.links) {
+      return (
+        <div>
+          <h2><div id="inputs-static">{this.state.title}</div></h2>
+          <hr />
+          <ul className="linkList">
+            {
         this.state.links.map((item) => {
           return (
             <li>
@@ -136,10 +161,9 @@ class Category extends Component {
           );
         })
       }
-            </ul>
-          </div>
-        );
-      }
+          </ul>
+        </div>
+      );
     }
   }
 

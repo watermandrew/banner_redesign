@@ -43,18 +43,13 @@ class NewApp extends Component {
     this.updateLinks = this.updateLinks.bind(this);
   }
   componentDidMount() {
-
     firebasedb.fetchAllLinks((items) => {
-      console.log(items);
       const mapLinks = Immutable.Map(items);
       this.setState({ links: mapLinks });
-
     });
 
     firebasedb.fetchCategories((cats) => {
       const allCats = Immutable.Map(cats);
-      console.log(`allCats is ${allCats}`);
-
       this.setState({ categories: allCats });
     });
   }
@@ -111,7 +106,6 @@ class NewApp extends Component {
         <div id="categories">
           {
           this.state.categories.entrySeq().map(([id, cat]) => {
-            console.log(`cat is ${cat}`);
             return (
 
               <div className="many-cats">
@@ -133,22 +127,21 @@ class NewApp extends Component {
 
   render() {
     return (
-      console.log('here'),
-        <div>
-          <NavBar />
-          <div id="whole-enchilada">
-            <div id="column">
-              <Profile />
-              <Checklist />
-            </div>
-            <div className="categories">
-              <Button switchM={this.switchMode} />
-              <NewModal show={this.state.isOpen} links={this.state.links} create={this.createCategory} onClose={this.switchMode}> Stuff here </NewModal>
-              <CategoryModal id={this.state.selectedKey} cat={this.state.selectedCat} show={this.state.chosen} onClose={this.switchChosen} deleteCat={this.deleteCat} updateTitle={this.updateTitle} updateLinks={this.updateLinks}> Stuff here </CategoryModal>
-              {this.showCats()}
-            </div>
+      <div>
+        <NavBar />
+        <div id="whole-enchilada">
+          <div id="column">
+            <Profile />
+            <Checklist />
+          </div>
+          <div className="categories">
+            <Button switchM={this.switchMode} />
+            <NewModal show={this.state.isOpen} links={this.state.links} create={this.createCategory} onClose={this.switchMode}> Stuff here </NewModal>
+            <CategoryModal id={this.state.selectedKey} cat={this.state.selectedCat} show={this.state.chosen} onClose={this.switchChosen} deleteCat={this.deleteCat} updateTitle={this.updateTitle} updateLinks={this.updateLinks}> Stuff here </CategoryModal>
+            {this.showCats()}
           </div>
         </div>
+      </div>
 
     );
   }

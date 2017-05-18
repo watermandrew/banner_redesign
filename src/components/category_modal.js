@@ -58,12 +58,8 @@ class CategoryModal extends React.Component {
     return (
       <div className="backdrop" style={backdropStyle}>
         <div className="modal" style={modalStyle}>
-          <Category cat={this.props.cat} id={this.props.id} deleteCat={this.props.deleteCat} updateTitle={this.props.updateTitle} updateLinks={this.props.updateLinks} />
-          <div id="footer">
-            <div className="container">
-              <button id="close-modal" onClick={this.props.onClose}>Close</button>
-            </div>
-          </div>
+          <Category cat={this.props.cat} id={this.props.id} deleteCat={this.props.deleteCat} updateTitle={this.props.updateTitle} updateLinks={this.props.updateLinks} onClose={this.props.onClose} />
+          <div id="footer" />
         </div>
       </div>
     );

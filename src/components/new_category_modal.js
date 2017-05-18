@@ -60,10 +60,7 @@
      return (
        <div className="backdrop" style={backdropStyle}>
          <div className="modal" style={modalStyle}>
-           <NewCategory links={this.props.links} create={this.props.create} />
-           <div className="container">
-             <button id="close-button" onClick={this.props.onClose}>Close</button>
-           </div>
+           <NewCategory links={this.props.links} create={this.props.create} onClose={this.props.onClose} />
          </div>
        </div>
      );

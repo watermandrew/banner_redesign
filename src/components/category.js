@@ -135,9 +135,7 @@ class Category extends Component {
         })
       }
             </ul>
-            <div id="edit-button">
-              <i className="fa fa-pencil-square-o fa-2x" aria-hidden="true" onClick={() => this.startEditing()}> Edit</i>
-            </div>
+
 
           </div>
         );
@@ -148,7 +146,15 @@ class Category extends Component {
   render() {
     return (
       <div>
-        {this.showLinks()}
+        <div>
+          {this.showLinks()}
+        </div>
+        <div className="container">
+          <button id="close-modal" onClick={this.props.onClose}>Close</button>
+        </div>
+        <div id="edit-button">
+          <i className="fa fa-pencil-square-o fa-2x" aria-hidden="true" onClick={() => this.startEditing()}> Edit</i>
+        </div>
       </div>
     );
   }

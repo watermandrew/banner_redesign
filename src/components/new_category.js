@@ -58,12 +58,11 @@ class NewCategory extends Component {
           <hr />
           <div><i><b>Select from the alphabetized links below:</b></i></div>
           <br />
-          {this.state.links.map((link) => {
-          // console.log(link);
+          {this.state.links.map((item) => {
             return (
               <div className="modal-links">
-                <li>{link}</li>
-                <div role="button" className="add-button" id={link} onClick={clicked => this.onButtonClick(link)}>+</div>
+                <li>{item.name}</li>
+                <div role="button" className="add-button" id={item.name} onClick={clicked => this.onButtonClick(item.name)}>+</div>
               </div>
             );
           })}

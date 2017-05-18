@@ -91,11 +91,11 @@ class Category extends Component {
             <hr />
             <ul className="linkList">
               {
-        this.state.links.map((link) => {
+        this.state.links.map((item) => {
           return (
 
             <li>
-              <a id="list-list">{link} </a>
+              <a id="list-list">{item.name} </a>
               <i className="fa fa-times fa-2x " aria-hidden="true" color="red" onClick={li => this.removeLink({ link })} />
             </li>
 
@@ -103,11 +103,11 @@ class Category extends Component {
         })
       }
               {
-        this.state.addLinks.map((link) => {
+        this.state.addLinks.map((item) => {
           return (
             <li>
-              <a id="list-list">{link}</a>
-              <button onClick={li => this.addLink({ link })}>+</button>
+              <a id="list-list">{item.name}</a>
+              <button onClick={li => this.addLink(item.name)}>+</button>
             </li>
 
           );
@@ -125,11 +125,11 @@ class Category extends Component {
             <hr />
             <ul className="linkList">
               {
-        this.state.links.map((link) => {
+        this.state.links.map((item) => {
           return (
-            console.log(link),
+            console.log(item.value.name),
               <li>
-                <Link to={'/payment'}>{link}</Link>
+                <Link to={`/${item.link}`}>{item.name}</Link>
               </li>
           );
         })

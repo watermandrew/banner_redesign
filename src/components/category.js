@@ -182,7 +182,7 @@ class Category extends Component {
     }
   }
   canEditOrNah() {
-    if (!this.props.isAllLinks && !this.state.isEditing) {
+    if (!this.state.isEditing) {
       return (
         <div id="creat-button">
           <div role="button" onClick={() => this.startEditing()}> Edit</div>

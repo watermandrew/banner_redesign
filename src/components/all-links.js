@@ -21,9 +21,13 @@ class AllTheLinks extends React.Component {
     this.showTheLinksMan = this.showTheLinksMan.bind(this);
   }
   componentDidMount() {
-    firebasedb.fetchAllLinks((items) => {
-      const mapLinks = Immutable.Map(items);
-      this.setState({ links: mapLinks });
+    firebasedb.fetchAllLinks((links) => {
+      const links_for_adding = [];
+      for (const i in links) {
+        links_for_adding.push(links[i]);
+      }
+
+      this.setState({ links: links_for_adding });
     });
   }
   switchMode() {
@@ -38,13 +42,17 @@ class AllTheLinks extends React.Component {
     });
   }
   showTheLinksMan() {
-    this.state.links.map((item) => {
+    if (this.state.links) {
       return (
-        <li>
-          <a id="list-list" href={item.link}>{item.name}</a>
-        </li>
+      this.state.links.map((item) => {
+        return (
+          <li>
+            <a id="list-list" href={item.link}>{item.name}</a>
+          </li>
+        );
+      })
       );
-    });
+    }
   }
 
   render() {
@@ -77,10 +85,13 @@ class AllTheLinks extends React.Component {
 
     return (
       <div className="backdrop" style={backdropStyle}>
-        <div className="modal" style={modalStyle} />
-        {this.showTheLinksMan()}
-        <div className="container">
-          <button id="close-modal" onClick={this.props.onClose}>Close</button>
+        <div className="modal" style={modalStyle}>
+          {this.showTheLinksMan()}
+          <div className="container">
+            <ul>
+              <button id="close-modal" onClick={this.props.onClose}>Close</button>
+            </ul>
+          </div>
         </div>
       </div>
     );

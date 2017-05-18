@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import Immutable from 'immutable';
 import { withRouter } from 'react-router-dom';
 // import Category from './components/category';
-// import Modal from './Modal';
+// import Modal from '../Modal';
 import Profile from './profile';
 import * as firebasedb from '../firebasedb';
 
@@ -16,6 +16,7 @@ import NavBar from './nav';
 // import Payment from './payment';
 import Checklist from './checklist';
 import Button from './cat_button';
+import AllTheLinks from './all-links';
 
 class NewApp extends Component {
   constructor(props) {
@@ -33,6 +34,7 @@ class NewApp extends Component {
       links: [],
       isOpen: false,
       chosen: false,
+      allLinksOrNah: false,
     };
     this.switchMode = this.switchMode.bind(this);
     this.createCategory = this.createCategory.bind(this);
@@ -41,6 +43,7 @@ class NewApp extends Component {
     this.deleteCat = this.deleteCat.bind(this);
     this.updateTitle = this.updateTitle.bind(this);
     this.updateLinks = this.updateLinks.bind(this);
+    this.chooseAllLinks = this.chooseAllLinks.bind(this);
   }
   componentDidMount() {
     firebasedb.fetchAllLinks((items) => {
@@ -123,8 +126,11 @@ class NewApp extends Component {
       );
     }
   }
-
-
+  chooseAllLinks() {
+    this.setState({
+      allLinksOrNah: !this.state.allLinksOrNah,
+    });
+  }
   render() {
     return (
       <div>
@@ -136,6 +142,8 @@ class NewApp extends Component {
           </div>
           <div className="categories">
             <Button switchM={this.switchMode} />
+            <Button switchM={this.chooseAllLinks}>All Links</Button>
+            <AllTheLinks show={this.state.allLinksOrNah} onClose={this.chooseAllLinks}>Stuff here</AllTheLinks>
             <NewModal show={this.state.isOpen} links={this.state.links} create={this.createCategory} onClose={this.switchMode}> Stuff here </NewModal>
             <CategoryModal id={this.state.selectedKey} cat={this.state.selectedCat} show={this.state.chosen} onClose={this.switchChosen} deleteCat={this.deleteCat} updateTitle={this.updateTitle} updateLinks={this.updateLinks}> Stuff here </CategoryModal>
             {this.showCats()}

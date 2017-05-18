@@ -20,7 +20,6 @@ export function fetchAllLinks(callback) {
 
 export function fetchCategories(callback) {
   db.ref('categories').on('value', (snapshot) => {
-    console.log(`in fetchCategories, snapshot.val() is ${snapshot.val()}`);
     callback(snapshot.val());
   });
 }

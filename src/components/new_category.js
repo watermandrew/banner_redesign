@@ -100,11 +100,11 @@ class NewCategory extends Component {
             onClose={this.sureDialog}
           >
             <div id="dialog-content">
-              <div><i className="fa fa-exclamation-circle fa-3x" aria-hidden="true" />
+              <div><i className="fa fa-exclamation-circle fa-4x" aria-hidden="true" />
               </div>
               <div>Are you sure you want to exit? You have some unsaved changes. </div>
-              <button onClick={this.props.onClose}>Yes, I am sure.</button>
             </div>
+            <button id="pay-button-yes" onClick={this.props.onClose}>Yes, I am sure.</button>
           </Sure>
           <button id="creat-button" disabled={!isEnabled} onClick={this.createCategory}>Create</button>
         </div>

@@ -67,6 +67,10 @@ class NewCategory extends Component {
     }
   }
   render() {
+    const isEnabled =
+    this.state.selectedLinks.length > 0 &&
+    this.state.title.length > 0;
+
     console.log(this.state.links);
     return (
       <div>
@@ -80,8 +84,9 @@ class NewCategory extends Component {
         </div>
         <div className="container">
           <button id="close-button" onClick={this.props.onClose}>Cancel</button>
-          <button id="creat-button" onClick={this.createCategory}>Create</button>
+          <button id="creat-button" disabled={!isEnabled} onClick={this.createCategory}>Create</button>
         </div>
+
       </div>
     );
   }

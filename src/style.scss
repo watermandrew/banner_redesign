@@ -555,6 +555,10 @@ li {
     color: green;
     margin-bottom:20px;
   }
+  b {
+    font-weight: bolder;
+    color: black;
+  }
 }
 
 
@@ -604,6 +608,9 @@ li {
   #pay-button {
     margin-left: 400px;
   }
+  #pay-button-ok {
+    margin-left: 219px;
+  }
 }
 
 #pay-button {
@@ -645,4 +652,5 @@ li {
     width: 80%;
     margin-bottom: 20px;
   }
+
 }

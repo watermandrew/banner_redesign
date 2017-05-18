@@ -19,6 +19,40 @@ b{
   }
 }
 
+.grades {
+  #title {
+    font-size: 30px;
+    color: purple;
+    justify-content: center;
+    align-items: center;
+
+  }
+  ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-style: bolder;
+    text-align: center;
+    margin-top: 90px;
+    li {
+      padding-bottom: 10px;
+    }
+  }
+  #listitem {
+    font-size: 20px;
+    max-width: 500px;
+    height: 200px;
+    width: 300px;
+    padding-top: 50px;
+  }
+}
+#itm {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 #checkin {
   b {
     font-style: bolder;

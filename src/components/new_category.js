@@ -13,7 +13,6 @@ class NewCategory extends Component {
     this.onInputChange = this.onInputChange.bind(this);
     this.onButtonClick = this.onButtonClick.bind(this);
     this.createCategory = this.createCategory.bind(this);
-
     // this.onButtonClick = this.onButtonClick.bind(this);
   }
   // componentDidMount() {
@@ -51,27 +50,34 @@ class NewCategory extends Component {
     this.props.create(cat);
   }
 
+
   render() {
+    const isEnabled =
+      this.state.selectedLinks.length > 0 &&
+      this.state.title.length > 0;
+
     return (
-      <div>
-        <div id="new-category">
-          <h2>Create a New Category</h2>
-          <div>Title: <input type="text" name="My Category Name" placeholder="Type a new category name here" onChange={this.onInputChange} value={this.state.title} /></div>
-          <hr />
-          <div><i><b>Select from the alphabetized links below:</b></i></div>
-          <br />
-          {this.state.links.map((link) => {
-          // console.log(link);
-            return (
-              <div className="modal-links">
-                <li>{link}</li>
-                <div role="button" className="add-button" id={link} onClick={clicked => this.onButtonClick(link)}>+</div>
-              </div>
-            );
-          })}
+      console.log('button'),
+      console.log(this.state.selectedLinks),
+      console.log(this.state.selectedLinks.length),
+        <div>
+          <div id="new-category">
+            <h2>Create a New Category</h2>
+            <div>Title: <input type="text" name="My Category Name" placeholder="Type a new category name here" onChange={this.onInputChange} value={this.state.title} /></div>
+            <hr />
+            <div><i><b>Select from the alphabetized links below:</b></i></div>
+            <br />
+            {this.state.links.map((link) => {
+              return (
+                <div className="modal-links">
+                  <li>{link}</li>
+                  <div role="button" className="add-button" id={link} onClick={clicked => this.onButtonClick(link)}>+</div>
+                </div>
+              );
+            })}
+          </div>
+          <button id="creat-button" disabled={!isEnabled} onClick={this.createCategory}>Create</button>
         </div>
-        <button id="creat-button" onClick={this.createCategory}>Create</button>
-      </div>
     );
   }
 }

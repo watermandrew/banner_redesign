@@ -23,6 +23,7 @@ class Checklist extends Component {
       return (
         <div className="checkListItem">
           {item}
+          <i className="fa fa-check" aria-hidden="true" onClick={i => this.removeItem(item)} />
         </div>
       );
     })
@@ -45,6 +46,19 @@ class Checklist extends Component {
       to_do: newList,
       newItem: '',
       isAdding: false,
+    });
+  }
+  removeItem(item) {
+    const newList = [];
+
+    for (let i = 0; i < this.state.to_do.length; i += 1) {
+      if (this.state.to_do[i] !== item) {
+        newList.push(this.state.to_do[i]);
+      }
+    }
+
+    this.setState({
+      to_do: newList,
     });
   }
   showAdd() {

@@ -43,7 +43,16 @@ b{
   align-items: flex-end;
   margin-left: 15px;
 }
-
+.categs {
+  display: flex;
+  flex-direction: row nowrap;
+  justify-content: center;
+  align-items: center;
+  margin-left: 15px;
+  #modal-button-delete, #modal-button {
+    padding: 10px 25px;
+  }
+}
 
 #nav-bar {
   margin: 0;
@@ -271,6 +280,21 @@ li {
     margin-right: 30%;
 }
 
+#modal-button-delete {
+    background-color: red;
+    border-radius: 2px;
+    border: none;
+    color: white;
+    font-size: 25px;
+    cursor: pointer;
+    padding: 20px 20px 20px 20px;
+    text-align: center;
+    text-decoration: none;
+    font: inherit;
+    margin-left: 30%;
+    margin-right: 30%;
+}
+
 #close-modal  {
   al-button {
       background-color: green;
@@ -294,6 +318,15 @@ li {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+
+.containers {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
 }
 
 #create-modal {

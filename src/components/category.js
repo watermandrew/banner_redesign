@@ -148,8 +148,10 @@ class Category extends Component {
       }
 
           </ul>
-          <button id="modal-button"onClick={this.stopEditing}>Done</button>
-          <button id="modal-button" onClick={this.deleteCat}>Delete</button>
+          <div className="categs">
+            <button id="modal-button-delete" onClick={this.deleteCat}>Delete Category</button>
+            <button id="modal-button"onClick={this.stopEditing}>Finish Editing</button>
+          </div>
         </div>
       );
     } else if (this.state.links) {

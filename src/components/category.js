@@ -175,8 +175,8 @@ class Category extends Component {
   canEditOrNah() {
     if (!this.props.isAllLinks) {
       return (
-        <div id="edit-button">
-          <i className="fa fa-pencil-square-o fa-2x" aria-hidden="true" onClick={() => this.startEditing()}> Edit</i>
+        <div id="creat-button">
+          <div role="button" onClick={() => this.startEditing()}> Edit</div>
         </div>
       );
     }
@@ -189,8 +189,8 @@ class Category extends Component {
         </div>
         <div className="container">
           <button id="close-modal" onClick={this.props.onClose}>Close</button>
+          {this.canEditOrNah()}
         </div>
-        {this.canEditOrNah()}
       </div>
     );
   }

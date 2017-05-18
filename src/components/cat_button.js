@@ -14,7 +14,7 @@ class CatButton extends Component {
   render() {
     return (
       <button id="cat-button" onClick={this.switchM}>
-      + Create a Category
+        {this.props.title}
       </button>
     );
   }

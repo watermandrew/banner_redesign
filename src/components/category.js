@@ -170,6 +170,13 @@ class Category extends Component {
           </ul>
         </div>
       );
+    } else {
+      return (
+        <div>
+          <h2><div id="inputs-static">{this.state.title}</div></h2>
+          <hr />
+        </div>
+      );
     }
   }
   canEditOrNah() {

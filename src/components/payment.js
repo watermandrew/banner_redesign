@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 // import CardItem from './card-item';
 import CreditCardEdit from './edit-credit-card';
 import NavBar from './nav';
+import Modal from '../modal';
 //
 // const cardData = [
 //   { cardName: 'Bob', cardNum: 'xxxx-xxxx-xxxx-1234' },
@@ -15,7 +16,16 @@ import NavBar from './nav';
 class Payment extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      isOpen: false,
+    };
+    this.showDialog = this.showDialog.bind(this);
+  }
+
+  showDialog() {
+    this.setState({
+      isOpen: !this.state.isOpen,
+    });
   }
 
   render() {
@@ -41,11 +51,23 @@ class Payment extends Component {
               </div>
             </div>
           </div>
-          <button id="pay-button">Complete Transaction</button>
+          <div>
+            <button id="pay-button" onClick={this.showDialog}>Complete transaction
+                </button>
+            <Modal show={this.state.isOpen}
+              onClose={this.switch}
+            >
+              <div id="dialog-content">
+                <div><i className="fa fa-check-circle-o" aria-hidden="true" /></div>
+                <div>Thank you! Your payment is being processed. Please check your Dartmouth email for a confirmation receipt of your transaction. </div>
+              </div>
+            </Modal>
+          </div>
         </div>
       </div>
     );
   }
 }
+
 
 export default Payment;

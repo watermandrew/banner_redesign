@@ -95,7 +95,7 @@ class Category extends Component {
           return (
 
             <li>
-              <a id="list-list" href="#">{link} </a>
+              <a id="list-list">{link} </a>
               <i className="fa fa-times fa-2x " aria-hidden="true" color="red" onClick={li => this.removeLink({ link })} />
             </li>
 
@@ -106,7 +106,7 @@ class Category extends Component {
         this.state.addLinks.map((link) => {
           return (
             <li>
-              <a id="list-list" href="#">{link}</a>
+              <a id="list-list">{link}</a>
               <button onClick={li => this.addLink({ link })}>+</button>
             </li>
 

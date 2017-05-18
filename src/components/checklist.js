@@ -65,7 +65,9 @@ class Checklist extends Component {
     if (this.state.isAdding) {
       return (
         <div>
-          <input onChange={this.updateAdding} />
+          <div id="check">
+            <input type="text" onChange={this.updateAdding} />
+          </div>
           <button className="checkListButton" onClick={this.addItem}>Finish</button>
         </div>
       );

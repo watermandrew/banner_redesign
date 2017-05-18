@@ -28,11 +28,18 @@ class Checkin extends Component {
       return (
         <div>
           <NavBar />
-          <Link to={'/home'}><i className="fa fa-home fa-4x" aria-hidden="true" /></Link>
-          <div>Hello Divya! Please enter the details below to check in!</div>
-          <div>Name: <input /></div>
-          <div>Emergency Contact Information: <input /></div>
-          <button onClick={this.onButtonClick}>Check in!</button>
+          <div id="check-in-rem">
+            <h2>Please update the details below to check in for Summer Term, 2017</h2>
+            <h2><b>Reminder</b>: If you do not check in by June 18th, your account will be billed $50 for each week.</h2>
+          </div>
+          <div id="checkin">
+            <div><b>Name:</b> <input type="text" placeholder="enter your full name" /></div>
+            <div><b>Emergency Contact Information:</b> <input type="text" placeholder="Enter phone number" /></div>
+            <div><b>Contact name:</b> <input type="text" placeholder="Enter contact's full name" /></div>
+            <div><b>Relationship:</b> <input type="text" placeholder="e.g. Parent, Spouse" /></div>
+            <div><b>Phone number:</b> <input type="text" placeholder="Enter phone number" /></div>
+            <button id="pay-button" onClick={this.onButtonClick}>Check in!</button>
+          </div>
         </div>
       );
     } else {

@@ -25,7 +25,7 @@ class Category extends Component {
       for (const i in links) {
         let inList = false;
         for (const j in this.state.links) {
-          if (links[i] === this.state.links[j]) {
+          if (links[i].name === this.state.links[j].name) {
             inList = true;
             break;
           }

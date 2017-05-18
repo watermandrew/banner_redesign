@@ -167,7 +167,7 @@ class Category extends Component {
     }
   }
   canEditOrNah() {
-    if (!this.props.isAllLinks) {
+    if (!this.props.isAllLinks && !this.state.isEditing) {
       return (
         <div id="edit-button">
           <i className="fa fa-pencil-square-o fa-2x" aria-hidden="true" onClick={() => this.startEditing()}> Edit</i>

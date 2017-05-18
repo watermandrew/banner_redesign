@@ -83,9 +83,10 @@ class NewCategory extends Component {
           {this.showLinks()}
         </div>
         <div className="container">
-          <button id="close-button" onClick={this.props.onClose}>Close</button>
+          <button id="close-button" onClick={this.props.onClose}>Cancel</button>
+          <button id="creat-button" disabled={!isEnabled} onClick={this.createCategory}>Create</button>
         </div>
-        <button id="creat-button" disabled={!isEnabled} onClick={this.createCategory}>Create</button>
+
       </div>
     );
   }

@@ -25,7 +25,7 @@ class Category extends Component {
       for (const i in links) {
         let inList = false;
         for (const j in this.state.links) {
-          if (links[i] === this.state.links[j]) {
+          if (links[i].name === this.state.links[j].name) {
             inList = true;
             break;
           }
@@ -108,42 +108,50 @@ class Category extends Component {
       );
     })
   }
-
           </ul>
           <button id="modal-button"onClick={this.stopEditing}>Done</button>
           <button id="modal-button" onClick={this.deleteCat}>Delete</button>
         </div>);
     } else if (this.state.isEditing) {
       return (
-        <div>
+        <div id="h2">
           <h2><input className="inputs" type="text" onChange={this.updateTitle} value={this.state.title} /></h2>
           <hr />
+          <b><i id="curr-links">Current links:</i></b>
           <ul className="linkList">
             {
         this.state.links.map((item) => {
           return (
-            <li>
-              <a id="list-list">{item.name} </a>
-              <i className="fa fa-times fa-2x " aria-hidden="true" color="red" onClick={li => this.removeLink(item)} />
-            </li>
+            <div>
+              <div className="modal-links">
+                <li>{item.name} </li>
+                <div role="button" className="add-button" onClick={li => this.removeLink(item)}>-</div>
+              </div>
+            </div>
+
           );
         })
       }
+            <b><i>------------------------------Links to Add------------------------------ </i></b>
             {
         this.state.addLinks.map((item) => {
           return (
-            <li>
-              <a id="list-list">{item.name}</a>
-              <button onClick={li => this.addLink(item)}>+</button>
-            </li>
+            <div>
+              <div className="modal-links">
+                <li>{item.name}</li>
+                <div role="button" className="ADD-button"onClick={li => this.addLink(item)}>+</div>
+              </div>
+            </div>
 
           );
         })
       }
 
           </ul>
-          <button id="modal-button"onClick={this.stopEditing}>Done</button>
-          <button id="modal-button" onClick={this.deleteCat}>Delete</button>
+          <div className="categs">
+            <button id="modal-button-delete" onClick={this.deleteCat}>Delete Category</button>
+            <button id="modal-button"onClick={this.stopEditing}>Finish Editing</button>
+          </div>
         </div>
       );
     } else if (this.state.links) {
@@ -164,9 +172,24 @@ class Category extends Component {
           </ul>
         </div>
       );
+    } else {
+      return (
+        <div>
+          <h2><div id="inputs-static">{this.state.title}</div></h2>
+          <hr />
+        </div>
+      );
     }
   }
-
+  canEditOrNah() {
+    if (!this.props.isAllLinks && !this.state.isEditing) {
+      return (
+        <div id="creat-button">
+          <div role="button" onClick={() => this.startEditing()}> Edit</div>
+        </div>
+      );
+    }
+  }
   render() {
     return (
       <div>
@@ -175,9 +198,7 @@ class Category extends Component {
         </div>
         <div className="container">
           <button id="close-modal" onClick={this.props.onClose}>Close</button>
-        </div>
-        <div id="edit-button">
-          <i className="fa fa-pencil-square-o fa-2x" aria-hidden="true" onClick={() => this.startEditing()}> Edit</i>
+          {this.canEditOrNah()}
         </div>
       </div>
     );

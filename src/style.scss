@@ -764,3 +764,33 @@ li {
   }
 
 }
+
+#pay-button-yes {
+  background-color: green;
+  color: white;
+  font-size: 25px;
+  cursor: pointer;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  font: inherit;
+  margin-top: 20px;
+  margin-left: 180px;
+}
+
+#pay-button-no {
+  background-color: #4099FF;
+  color: white;
+  font-size: 25px;
+  cursor: pointer;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  font: inherit;
+  margin-top: 50px;
+  margin-left: 120px;
+}
+
+.fa-exclamation-circle {
+  color: red;
+}

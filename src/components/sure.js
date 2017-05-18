@@ -37,7 +37,7 @@ class Sure extends React.Component {
         <div id="modal" style={modalStyle}>
           {this.props.children}
           <div id="footer">
-            <button id="pay-button-ok" onClick={this.props.onClose} >No I want to continue editing!</button>
+            <button id="pay-button-no" onClick={this.props.onClose} >No I want to continue editing!</button>
           </div>
         </div>
       </div>

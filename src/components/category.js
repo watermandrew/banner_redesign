@@ -49,20 +49,18 @@ class Category extends Component {
   }
   deleteCat() {
     this.props.deleteCat(this.props.id);
-    console.log(`key is ${this.props.id}`);
-    // send delete request to firebase
   }
   updateTitle(event) {
     this.setState({ title: event.target.value });
   }
   addLink(selectedLink) {
     const newLinks = this.state.links;
-    newLinks.push(selectedLink.link);
+    newLinks.push(selectedLink);
 
     const newAddLinks = [];
 
     for (let i = 0; i < this.state.addLinks.length; i += 1) {
-      if (this.state.addLinks[i] !== selectedLink.link) {
+      if (this.state.addLinks[i] !== selectedLink) {
         newAddLinks.push(this.state.addLinks[i]);
       }
     }
@@ -75,12 +73,19 @@ class Category extends Component {
   removeLink(selectedLink) {
     const newLinks = [];
     for (let i = 0; i < this.state.links.length; i += 1) {
-      if (this.state.links[i] !== selectedLink.link) {
+      if (this.state.links[i].name !== selectedLink.name) {
         newLinks.push(this.state.links[i]);
       }
     }
 
-    this.setState({ links: newLinks });
+    // need to add removed link back to the "addLinks" in case user wants to add it again
+    const addLinks = this.state.addLinks;
+    addLinks.push(selectedLink);
+
+    this.setState({
+      links: newLinks,
+      addLinks,
+    });
   }
   showLinks() {
     if (this.state.links) {
@@ -93,12 +98,10 @@ class Category extends Component {
               {
         this.state.links.map((item) => {
           return (
-
             <li>
               <a id="list-list">{item.name} </a>
-              <i className="fa fa-times fa-2x " aria-hidden="true" color="red" onClick={li => this.removeLink({ link })} />
+              <i className="fa fa-times fa-2x " aria-hidden="true" color="red" onClick={li => this.removeLink(item)} />
             </li>
-
           );
         })
       }
@@ -107,7 +110,7 @@ class Category extends Component {
           return (
             <li>
               <a id="list-list">{item.name}</a>
-              <button onClick={li => this.addLink(item.name)}>+</button>
+              <button onClick={li => this.addLink(item)}>+</button>
             </li>
 
           );
@@ -127,16 +130,13 @@ class Category extends Component {
               {
         this.state.links.map((item) => {
           return (
-            console.log(item.value.name),
-              <li>
-                <Link to={`/${item.link}`}>{item.name}</Link>
-              </li>
+            <li>
+              <Link to={`/${item.link}`}>{item.name}</Link>
+            </li>
           );
         })
       }
             </ul>
-
-
           </div>
         );
       }

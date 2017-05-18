@@ -166,7 +166,15 @@ class Category extends Component {
       );
     }
   }
-
+  canEditOrNah() {
+    if (!this.props.isAllLinks) {
+      return (
+        <div id="edit-button">
+          <i className="fa fa-pencil-square-o fa-2x" aria-hidden="true" onClick={() => this.startEditing()}> Edit</i>
+        </div>
+      );
+    }
+  }
   render() {
     return (
       <div>
@@ -176,9 +184,7 @@ class Category extends Component {
         <div className="container">
           <button id="close-modal" onClick={this.props.onClose}>Close</button>
         </div>
-        <div id="edit-button">
-          <i className="fa fa-pencil-square-o fa-2x" aria-hidden="true" onClick={() => this.startEditing()}> Edit</i>
-        </div>
+        {this.canEditOrNah()}
       </div>
     );
   }

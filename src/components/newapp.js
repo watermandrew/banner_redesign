@@ -44,6 +44,7 @@ class NewApp extends Component {
   }
   componentDidMount() {
     firebasedb.fetchAllLinks((links) => {
+      console.log(links);
       this.setState({ links });
     });
 

@@ -479,3 +479,80 @@ li {
   font: inherit;
   margin-top: 10px;
 }
+
+#sign-in-butt {
+  background-color: #4099FF;
+  color: white;
+  font-size: 25px;
+  cursor: pointer;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  font: inherit;
+  margin-top: 10px;
+}
+
+
+#sign-in {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  margin-top: 150px;
+  width: 400px;
+  height: 400px;
+  margin-left: 550px;
+  input[type=text] {
+    padding: 10px 10px;
+    margin: 4px 4px;
+    border: 1px solid;
+    border-radius: 2px;
+    font: inherit;
+    font-size: 15px;
+    color: black;
+    border-color: grey;
+    width: 60%;
+
+  }
+}
+
+#fields {
+  background-color: lightgreen;
+  padding: 15px 15px;
+
+}
+
+
+.fa-check-circle-o {
+  font-size: 5em;
+  font-weight: lighter;
+  color: green;
+  margin-bottom:20px;
+}
+
+#dialog-content {
+  display: flex;
+  margin-top: 50px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .fa-check-circle-o {
+    font-size: 5em;
+    font-weight: lighter;
+    color: green;
+    margin-bottom:20px;
+  }
+}
+
+
+#pay-button-ok {
+  background-color: #4099FF;
+  color: white;
+  font-size: 25px;
+  cursor: pointer;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  font: inherit;
+  margin-top: 20px;
+}

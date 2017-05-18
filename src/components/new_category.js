@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Immutable from 'immutable';
+import Sure from './sure';
 // import * as firebasedb from '../firebasedb';
 
 class NewCategory extends Component {
@@ -10,10 +11,12 @@ class NewCategory extends Component {
       title: '',
       links: this.props.links,
       selectedLinks: [],
+      isOpenSure: false,
     };
     this.onInputChange = this.onInputChange.bind(this);
     this.onButtonClick = this.onButtonClick.bind(this);
     this.createCategory = this.createCategory.bind(this);
+    this.sureDialog = this.sureDialog.bind(this);
 
     // this.onButtonClick = this.onButtonClick.bind(this);
   }
@@ -66,6 +69,13 @@ class NewCategory extends Component {
       );
     }
   }
+
+  sureDialog() {
+    this.setState({
+      isOpenSure: !this.state.isOpenSure,
+    });
+  }
+
   render() {
     console.log(this.state.links);
     return (
@@ -79,7 +89,18 @@ class NewCategory extends Component {
           {this.showLinks()}
         </div>
         <div className="container">
-          <button id="close-button" onClick={this.props.onClose}>Cancel</button>
+          <button id="close-button" onClick={this.sureDialog}>Cancel</button>
+
+          <Sure show={this.state.isOpenSure}
+            onClose={this.sureDialog}
+          >
+            <div id="dialog-content">
+              <div><i className="fa fa-exclamation-circle fa-3x" aria-hidden="true" />
+              </div>
+              <div>Are you sure you want to exit? You have some unsaved changes. </div>
+              <button onClick={this.props.onClose}>Yes, I am sure.</button>
+            </div>
+          </Sure>
           <button id="creat-button" onClick={this.createCategory}>Create</button>
         </div>
       </div>

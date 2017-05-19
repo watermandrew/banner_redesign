@@ -66,6 +66,7 @@ b{
 #column {
   display: flex;
   flex-flow: column;
+  height: inherit;
   // padding-right: 50px;
   border-right: solid 5px green;
 }

@@ -36,10 +36,9 @@ class Checkin extends Component {
         </div>
         <div id="checkin">
           <div><b>Name:</b> <input type="text" placeholder="enter your full name" /></div>
-          <div><b>Emergency Contact Information:</b> <input type="text" placeholder="Enter phone number" /></div>
-          <div><b>Contact name:</b> <input type="text" placeholder="Enter contact's full name" /></div>
+          <div><b>Emergency Contact name:</b> <input type="text" placeholder="Enter contact's full name" /></div>
           <div><b>Relationship:</b> <input type="text" placeholder="e.g. Parent, Spouse" /></div>
-          <div><b>Phone number:</b> <input type="text" placeholder="Enter phone number" /></div>
+          <div><b>Phone number:</b> <input type="text" placeholder="e.g. 1-209-222-3333" /></div>
           <div>
             <button id="pay-button" onClick={this.showDialog}>Check in
                 </button>

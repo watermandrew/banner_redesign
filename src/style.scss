@@ -5,7 +5,7 @@ html, body {
   font-family: Lato;
 }
 
-nav {
+#nav {
   align-items: center;
 }
 
@@ -63,10 +63,19 @@ b{
   }
 }
 
+.fa-sign-out, .fa-home {
+  color: white;
+  #label {
+    color: white;
+    font-size: 10px;
+  }
+}
+
+
 #column {
   display: flex;
   flex-flow: column;
-  height: inherit;
+  height: 800px;
   // padding-right: 50px;
   border-right: solid 5px green;
 }
@@ -109,18 +118,17 @@ b{
 }
 
 #nav-bar {
-  margin: 0;
-  background-color: green;
-  //offical green: 0, .412, .243
   display: flex;
-  //height: 100%;
-  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: green;
+
+  height: 100%;
+
   color: white;
   font-size: 2.5em;
-  padding-left: 300px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  justify-content: space-around;
+  padding-right: 10px;
+  padding-left: 10px;
 
 }
 .heading {
@@ -764,7 +772,7 @@ li {
   justify-content: left;
   align-items: left;
   font-size: 15px;
-  margin-left: 500px;
+  margin-left:440px;
   padding-left: 30px;
   padding-top: 30px;
   width: 30%;

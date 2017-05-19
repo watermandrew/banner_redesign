@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class CatButton extends Component {
+class Button extends Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -21,4 +21,4 @@ class CatButton extends Component {
 }
 
 
-export default CatButton;
+export default Button;

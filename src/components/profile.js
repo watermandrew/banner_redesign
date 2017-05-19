@@ -20,7 +20,6 @@ class Profile extends Component {
           <p>Credits Remaining: {this.state.remCredits}</p>
           <hr />
         </div>
-        <div className="vr">&nbsp;</div>
       </div>
     );
   }

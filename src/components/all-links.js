@@ -46,9 +46,9 @@ class AllTheLinks extends React.Component {
       return (
       this.state.links.map((item) => {
         return (
-          <li>
-            <a id="list-list" href={item.link}>{item.name}</a>
-          </li>
+          <div className="modal-links">
+            <a id="listy" href={item.link}>{item.name}</a>
+          </div>
         );
       })
       );
@@ -86,11 +86,14 @@ class AllTheLinks extends React.Component {
     return (
       <div className="backdrop" style={backdropStyle}>
         <div className="modal" style={modalStyle}>
-          {this.showTheLinksMan()}
+          <div className="new-category">
+            <h2 id="yo">All Banner Links</h2>
+            <div id="modal-links-all">
+              {this.showTheLinksMan()}
+            </div>
+          </div>
           <div className="container">
-            <ul>
-              <button id="close-modal" onClick={this.props.onClose}>Close</button>
-            </ul>
+            <button id="close-modal" onClick={this.props.onClose}>Close</button>
           </div>
         </div>
       </div>

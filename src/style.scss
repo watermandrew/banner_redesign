@@ -153,6 +153,8 @@ input[type="radio"]:checked + label{
   overflow: scroll;
 }
 
+
+
 input[type=text], select {
   padding: 10px 8px;
   margin: 4px 0.01px;
@@ -189,6 +191,10 @@ input[type=text], select {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  li {
+    padding-top: 10px;
+    padding-bottom: 20px;
+  }
 }
 
 
@@ -241,6 +247,31 @@ li {
       padding-bottom: 20px;
     }
 }
+
+.modal-links-all {
+  display: flex;
+  flex-direction: column nowrap;
+  color: black;
+  overflow: scroll;
+  align-items: center;
+  justify-content: space-between;
+  li {
+    padding-top: 10px;
+    padding-bottom: 20px;
+  }
+}
+
+
+
+#listy {
+  padding-bottom: 10px;
+  padding-bottom: 20px;
+}
+
+#yo {
+  text-align: center;
+}
+
 
 #checklist {
   display: flex;
@@ -778,6 +809,19 @@ li {
   margin-left: 180px;
 }
 
+#pay-button-yes-del {
+  background-color: red;
+  color: white;
+  font-size: 25px;
+  cursor: pointer;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  font: inherit;
+  margin-top: 20px;
+  margin-left: 160px;
+}
+
 #pay-button-no {
   background-color: #4099FF;
   color: white;
@@ -791,6 +835,25 @@ li {
   margin-left: 120px;
 }
 
+#pay-button-no-del {
+  background-color: #4099FF;
+  color: white;
+  font-size: 25px;
+  cursor: pointer;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  font: inherit;
+  margin-top: 20px;
+  margin-left: 190px;
+}
+
 .fa-exclamation-circle {
   color: red;
+}
+
+#diag-text {
+  text-align: center;
+  padding-top: 20px;
+  font-weight: bolder;
 }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter, Link } from 'react-router-dom';
 import * as firebasedb from '../firebasedb';
+import DeleteSure from './delete-sure';
 
 class Category extends Component {
   constructor(props) {
@@ -10,8 +11,10 @@ class Category extends Component {
       title: this.props.cat.title,
       links: this.props.cat.catLinks,
       addLinks: [],
+      isOpenDelSure: false,
     };
 
+    this.showDelSure = this.showDelSure.bind(this);
     this.startEditing = this.startEditing.bind(this);
     this.stopEditing = this.stopEditing.bind(this);
     this.addLink = this.addLink.bind(this);
@@ -19,6 +22,8 @@ class Category extends Component {
     this.updateTitle = this.updateTitle.bind(this);
     this.deleteCat = this.deleteCat.bind(this);
   }
+
+
   componentDidMount() {
     firebasedb.fetchAllLinks((links) => {
       const links_for_adding = [];
@@ -36,6 +41,12 @@ class Category extends Component {
       }
 
       this.setState({ addLinks: links_for_adding });
+    });
+  }
+
+  showDelSure() {
+    this.setState({
+      isOpenDelSure: !this.state.isOpenDelSure,
     });
   }
   startEditing() {
@@ -149,7 +160,17 @@ class Category extends Component {
 
           </ul>
           <div className="categs">
-            <button id="modal-button-delete" onClick={this.deleteCat}>Delete Category</button>
+            <button id="modal-button-delete" onClick={this.showDelSure}>Delete Category</button>
+            <DeleteSure show={this.state.isOpenDelSure}
+              onClose={this.showDelSure}
+            >
+              <div id="dialog-content">
+                <div><i className="fa fa-exclamation-circle fa-4x " aria-hidden="true" />
+                </div>
+                <div id="diag-text">Are you sure you want to delete this category? This action cannot be undone.</div>
+              </div>
+              <button id="pay-button-yes-del" onClick={this.deleteCat}>Yes, I want to delete.</button>
+            </DeleteSure>
             <button id="modal-button"onClick={this.stopEditing}>Finish Editing</button>
           </div>
         </div>

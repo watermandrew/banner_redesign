@@ -100,7 +100,7 @@ class NewCategory extends Component {
             onClose={this.sureDialog}
           >
             <div id="dialog-content">
-              <div><i className="fa fa-exclamation-circle fa-4x" aria-hidden="true" />
+              <div><i className="fa fa-exclamation-circle fa-4x " aria-hidden="true" />
               </div>
               <div>Are you sure you want to exit? You have some unsaved changes. </div>
             </div>

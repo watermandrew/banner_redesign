@@ -9,6 +9,10 @@ nav {
   align-items: center;
 }
 
+button {
+  border: none;
+}
+
 b{
   color: blue;
 }
@@ -574,7 +578,7 @@ li {
   margin-top: 0px;
 }
 
-#cat-button {
+.cat-button {
   background-color: #4099FF;
   border-radius: 2px;
   color: white;
@@ -591,11 +595,14 @@ li {
   box-shadow: 7px 7px 7px lightgrey;
 }
 
-#cat-button:hover {
+.cat-button:hover {
   background-color: lighten(#4099FF, 20%);
   box-shadow: 10px 10px 10px lightgrey;
 }
 
+.all {
+  margin-bottom: 100px;
+}
 .fa-cc-mastercard, .fa-cc-visa {
   margin-right: 5px;
   margin-left: 5px;
@@ -646,9 +653,16 @@ li {
   margin-top: 10px;
 }
 
+#logernterxt {
+  color: #4099FF;
+  font-size: 20px;
+  padding-bottom: 100px;
+
+}
 
 #sign-in {
   display: flex;
+  color: white;
   flex-direction: column;
   text-align: center;
   justify-content: center;
@@ -656,7 +670,7 @@ li {
   width: 400px;
   height: 400px;
   margin-left: 550px;
-  input[type=text] {
+  input[type=text], input[type=password] {
     padding: 10px 10px;
     margin: 4px 4px;
     border: 1px solid;
@@ -666,16 +680,14 @@ li {
     color: black;
     border-color: grey;
     width: 60%;
-
   }
 }
 
 #fields {
-  background-color: lightgreen;
+  background-color: green;
   padding: 15px 15px;
 
 }
-
 
 .fa-check-circle-o {
   font-size: 5em;
@@ -727,12 +739,12 @@ li {
   justify-content: left;
   align-items: left;
   font-size: 15px;
-  margin-left: 450px;
+  margin-left: 500px;
   padding-left: 30px;
   padding-top: 30px;
   width: 30%;
-  width: 600px;
-  height: 500px;
+  width: 550px;
+  height: 450px;
   background-color: lightblue;
   input[type=text] {
     padding: 10px 8px;

@@ -31,10 +31,10 @@ class SignIn extends Component {
       <div>
         <NavBar />
         <div id="sign-in">
-          <div>Login</div>
+          <div id="logernterxt">Login</div>
           <div id="fields">
             <div>Username: <input type="text" onChange={this.onChangeUsername} placeholder="e.g. username@dartmouth.edu" /></div>
-            <div>Password: <input type="text" onChange={this.onChangePass} placeholder="must be 8 characters long" /></div>
+            <div>Password: <input type="password" onChange={this.onChangePass} placeholder="must be 8 characters long" /></div>
           </div>
           <div>
             <Link to={'/home'}><button id="sign-in-butt">Sign In!</button></Link>

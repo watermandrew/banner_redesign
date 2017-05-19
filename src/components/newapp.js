@@ -141,7 +141,7 @@ class NewApp extends Component {
             <Checklist />
           </div>
           <div className="categories">
-            <Button switchM={this.switchMode} title={'+ Create a Category'} />
+            <Button className="all" switchM={this.switchMode} title={'+ Create a Category'} />
             <Button switchM={this.chooseAllLinks} title={'All Links'} />
             <AllTheLinks show={this.state.allLinksOrNah} onClose={this.chooseAllLinks}>Stuff here</AllTheLinks>
             <NewModal show={this.state.isOpen} links={this.state.links} create={this.createCategory} onClose={this.switchMode}> Stuff here </NewModal>

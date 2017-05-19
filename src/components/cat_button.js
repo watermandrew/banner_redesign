@@ -13,7 +13,7 @@ class CatButton extends Component {
 
   render() {
     return (
-      <button id="cat-button" onClick={this.switchM}>
+      <button className="cat-button" onClick={this.switchM}>
         {this.props.title}
       </button>
     );

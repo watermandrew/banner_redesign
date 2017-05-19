@@ -66,6 +66,8 @@ b{
 #column {
   display: flex;
   flex-flow: column;
+  // padding-right: 50px;
+  border-right: solid 5px green;
 }
 
 #whole-enchilada {
@@ -79,8 +81,21 @@ b{
   flex-flow: row wrap;
   justify-content: left;
   align-items: flex-end;
-  margin-left: 15px;
+  // margin-left: 15px;
 }
+
+.checkListItem {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  // padding: 10px;
+}
+
+.categories {
+  // margin-left: 20px;
+}
+
 .categs {
   display: flex;
   flex-direction: row nowrap;
@@ -223,6 +238,7 @@ li {
   // justify-content: center;
   align-items: left;
   padding-left: 10px;
+  padding-right: 50px;
   #profile-info {
     font-size: 1em;
     color: black;
@@ -282,6 +298,7 @@ li {
   flex-flow: column nowrap;
   align-items: left;
   padding-left: 10px;
+
 
   li {
     padding-bottom: 10px;
@@ -479,17 +496,22 @@ li {
   color: white;
   font-size: 35px;
   cursor: pointer;
-  padding: 20px 20px;
-  padding-right: 3px;
+  // padding: 20px 20px;
+  // padding-right: 3px;
   text-align: center;
   text-decoration: none;
   font: inherit;
   width: 200px;
   height: 200px;
-  margin-right: 30px;
-  margin-left: 50px;
-  margin-top: 50px;
+  // margin-right: 30px;
+  // margin-left: 50px;
+  // margin-top: 50px;
+  // margin: 40px;
   box-shadow: 7px 7px 7px lightgrey;
+}
+
+.cat-container {
+  margin: 40px;
 }
 
 .cat:hover {
@@ -502,7 +524,7 @@ li {
   flex-direction: row wrap;
   align-items: flex-start;
   justify-content: flex-start;
-  padding-right: 10px;
+  // padding-right: 10px;
 }
 
 
@@ -584,14 +606,16 @@ li {
   color: white;
   font-size: 35px;
   cursor: pointer;
-  padding: 30px 30px;
-  margin-left: 80px;
-  margin-top: 50px;
+  // padding: 30px 30px;
+  // margin-left: 80px;
+  // margin-top: 50px;
+  margin: 40px;
   text-align: center;
   text-decoration: none;
   font: inherit;
   width: 200px;
   height: 200px;
+  max-height: 200px;
   box-shadow: 7px 7px 7px lightgrey;
 }
 

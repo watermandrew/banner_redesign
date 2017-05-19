@@ -112,7 +112,7 @@ class NewApp extends Component {
             return (
 
               <div className="many-cats">
-                <div>
+                <div className="cat-container">
                   <button className="cat"onClick={(i, c) => this.chooseCat(id, cat)}>
                     {cat.title}
                   </button>
